@@ -19,6 +19,8 @@ class CreateBaivietTable extends Migration
             $table->text('content');
             $table->longText('image');
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

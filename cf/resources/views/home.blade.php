@@ -38,7 +38,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <header class="header fixed-top clearfix">
 <!--logo start-->
 <div class="brand">
-    <a href="/web/index.html" class="logo">
+<a href= {{route('home') }} class="logo">
         Quản Lý
     </a>
     <div class="sidebar-toggle-box">
@@ -51,13 +51,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--search & user info start-->
     <ul class="nav pull-right top-menu">
         <li>
-            <input type="text" class="form-control search" placeholder=" Search">
+            <div class="beta-comp">
+                <form role="search" method="get" id="searchform" action="{{route('admin.search')}}">
+                    <input type="text" value="" name="key" id="s" placeholder="Nhập từ khóa..." />
+                    <button class="fa fa-search" type="submit" id="searchsubmit"></button>
+                </form>
+            </div>
+            {{-- <input type="text" class="form-control search" placeholder=" Search"> --}}
         </li>
         <!-- user login dropdown start-->
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <img alt="" src="/web/images/2.png">
-                <span class="username">John Doe</span>
+            <span class="username">{{Auth::user()->name}}</span>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
@@ -93,7 +99,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <ul class="sub">
 						<li><a href="{{ route('cf.create') }}">Thêm sản phẩm</a></li>
-						<li><a href="{{ route('admin.danhMucSp') }}">Liệt kê các sản phẩm</a></li>
+                        <li><a href="{{ route('admin.danhMucSp') }}">Liệt kê các sản phẩm</a></li>
+						<li><a href="{{ route('admin.deleted') }}">Các sản phẩm đả xóa</a></li>
+
                     </ul>
                 </li>
 
@@ -127,7 +135,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Quản lý đơn hàng</span>
                     </a>
                     <ul class="sub">
-						<li><a href="{{ route('bai-viet.create') }}">Danh sách đặt hàng</a></li>
+						<li><a href="{{ route('admin.quanLyDonHang') }}">Danh sách đặt hàng</a></li>
 						<li><a href="{{ route('admin.danhMucBaiviet') }}">Danh sách giao hàng</a></li>
                         {{-- <li><a href="grids.html">Grids</a></li> --}}
                     </ul>

@@ -84,7 +84,7 @@
                         </div>
                         <!-- END LEFT SIDEBAR -->
                         <!-- BEGIN RIGHT SIDEBAR -->
-                        <div class="col-md-4 col-sm-4 blog-sidebar">
+                        {{-- <div class="col-md-4 col-sm-4 blog-sidebar">
                             <!-- CATEGORIES START -->
 
                             <!-- CATEGORIES END -->
@@ -93,7 +93,7 @@
                             <h2>Mr Tiến: 0935 096 425</h2>
 
                             <div class="recent-news margin-bottom-10">
-                                    <p>Thiết kế tận tình, giá rẻ, chu đáo, chuyên nghiệp, hiện đại.</p>
+                                    <p></p>
 
                             </div>
                             <!-- END RECENT NEWS -->
@@ -105,7 +105,7 @@
                                     </p>
                             </div>
                             <!-- END MOST READ -->
-                        </div>
+                        </div> --}}
                         <!-- END RIGHT SIDEBAR -->
                     </div>
                 </div>

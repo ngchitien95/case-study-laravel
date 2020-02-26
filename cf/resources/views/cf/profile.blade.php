@@ -7,7 +7,7 @@
         <!-- BEGIN SIDEBAR & CONTENT -->
         <div class="row margin-bottom-40">
             <!-- BEGIN SIDEBAR -->
-            <div class="sidebar col-md-3 col-sm-5">
+            {{-- <div class="sidebar col-md-3 col-sm-5">
                 <ul class="list-group margin-bottom-25 sidebar-menu">
                             <li class="list-group-item clearfix"><a href="/coffee/caphedacsanhue-5021"><i class="fa fa-angle-right"></i>C&#192; PH&#202; ĐẶC SẢN HUẾ</a></li>
                             <li class="list-group-item clearfix"><a href="/coffee/khuyenmaitet2020-5022"><i class="fa fa-angle-right"></i>KHUYẾN M&#195;I TẾT 2020</a></li>
@@ -21,7 +21,7 @@
                             <li class="list-group-item clearfix"><a href="/coffee/quancaphengon-3019"><i class="fa fa-angle-right"></i>Qu&#225;n c&#224; ph&#234; Ngon</a></li>
                 </ul>
 
-            </div>
+            </div> --}}
             <!-- END SIDEBAR -->
             <!-- BEGIN CONTENT -->
 
@@ -34,7 +34,7 @@
     <div class="row">
         <div class="col-md-5 col-sm-5">
             <div class="product-main-image">
-            <img src="{{$cf->image}}" height="200" width="200" alt="Cool green dress with red bell" class="img-responsive" data-BigImgsrc="http://greenfieldscoffee.com/Uploads/Photos/PHIN/TT.png">
+            <img src="{{$cf->image}}" height="300" width="300" alt="Cool green dress with red bell" class="img-responsive" data-BigImgsrc="http://greenfieldscoffee.com/Uploads/Photos/PHIN/TT.png">
             </div>
             <div class="product-other-images">
                                                     </div>

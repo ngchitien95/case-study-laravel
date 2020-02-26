@@ -128,17 +128,17 @@ class CfController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        $cf = Product::findOrFail($id);
-        $cf->delete();
+    // public function destroy($id)
+    // {
+    //     $cf = Product::findOrFail($id);
+    //     $cf->delete();
 
-        //dung session de dua ra thong bao
-        Session::flash('success', 'Xóa sản phẩm thành công');
+    //     //dung session de dua ra thong bao
+    //     Session::flash('success', 'Xóa sản phẩm thành công');
 
-        //xoa xong quay ve trang danh sach bài viết
-        return redirect()->route('admin.danhMucSp');
-    }
+    //     //xoa xong quay ve trang danh sach bài viết
+    //     return redirect()->route('admin.danhMucSp');
+    // }
 
     public function validateAttribute(){
         return request()->validate([

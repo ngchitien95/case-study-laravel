@@ -17,9 +17,8 @@ class CreateBillsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('customer_id');
             $table->date('date_order');
-            $table->float('total');
-            $table->string('payment',200);
-            $table->string('note',500);
+            $table->string('total',200);
+            $table->string('note',200);
             $table->foreign('customer_id')->references('id')->on('customer');
 
 

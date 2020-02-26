@@ -28,9 +28,14 @@
                 <h3><b><a href="/coffee/phintruyenthongclassicg-n13086">{{$cf->name}}</a></b></h3>
                 {{-- <p style="padding-top:0px;margin-top:-10px"><b>{{$cf->unit}}</b></p> --}}
                     <div class="pi-price">{{$cf->promotion_price}} Đ /    {{$cf->unit}} </div>
-                    <a href="javascript:void(0)" onclick="addCart(13086)" class="btn btn-default add2cart">
-                        <span class="glyphicon glyphicon-shopping-cart">
-                        </span>Thêm</a>
+                    <form action="{{route ('save_cart')}}" method="post">
+                        @csrf
+                        <button class="btn btn-info" >Thêm</button>
+                    <input type="hidden" name="productid_hidden" value="{{$cf->id}}">
+                    <input type="hidden" name="qty" value="1">
+
+
+                    </form>
                     <a href="{{ route('cf.show', $cf->id) }}" class="btn btn-default add2cart">Chi tiết</a>
                 <div style="float:left; text-align:justify; padding-top:10px"><p>{{$cf->description}}</p></div>
                 </div>

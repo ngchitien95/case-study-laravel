@@ -13,12 +13,12 @@
                         <div class="col-md-8 col-sm-8 blog-item">
                         <h2><a href="#">{{$baiViet->title}}</a></h2>
                             <ul class="blog-info">
-                                <li><i class="fa fa-user"></i> Thảo</li>
+                                {{-- <li><i class="fa fa-user"></i> Thảo</li> --}}
                             <li><i class="fa fa-calendar"></i> {{$baiViet->created_at}}</li>
-                                <li><i class="fa fa-eye"></i> 0</li>
+                                {{-- <li><i class="fa fa-eye"></i> 0</li> --}}
                             </ul>
 
-                            <img src="{{$baiViet->image}}" alt="">
+                            <img src="{{$baiViet->image}}" height="200" width="200" alt="">
 
 
                         <p><span style="color: rgb(28, 30, 33); font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold;">{{$baiViet->content}}</a></span><br></p>
@@ -50,10 +50,10 @@
                                 @foreach ($productType as $product)
                                         <div class="row margin-bottom-10">
                                             <div class="col-md-3">
-                                            <img class="img-responsive" alt="" src="{{$product->image}}">
+                                            {{-- <img class="img-responsive" alt="" src="{{$product->image}}"> --}}
                                             </div>
                                             <div class="col-md-9 recent-news-inner">
-                                                <h3><a href="/coffeeshop/post/4014">{{$product->name}}</a></h3>
+                                                <h3><a href="{{route('cf.cfType',$product->id)}}">{{$product->name}}</a></h3>
                                                 <p>{{$product->description}}</p>
                                             </div>
                                         </div>

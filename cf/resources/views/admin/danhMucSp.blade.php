@@ -36,7 +36,7 @@
                         <td class="text-light bg-dark">{{$cf->promotion_price}}</td>
                         <td class="text-light bg-dark">
                             <a href="{{ route('cf.edit',$cf->id)}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                            <a href="{{ route('cf.destroy',$cf->id)}}" class="btn btn-primary" ><i class="fa fa-trash"></i></a>
+                            <a href="{{ route('admin.delete',$cf->id)}}" class="btn btn-primary" ><i class="fa fa-trash"></i></a>
 
                     </td>
                     </tr>

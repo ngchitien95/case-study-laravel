@@ -19,12 +19,12 @@
                                         <div class="col-md-8 col-sm-8">
                                             <h2><a href="/blog/post/4019">{{$post->title}}</a></h2>
                                             <ul class="blog-info">
-                                                <li><i class="fa fa-user"></i> Thảo</li>
+                                                {{-- <li><i class="fa fa-user"></i> Thảo</li> --}}
                                                 <li><i class="fa fa-calendar"></i>{{$post->created_at}}</li>
-                                                <li><i class="fa fa-eye"></i> 18</li>
+                                                {{-- <li><i class="fa fa-eye"></i> 18</li> --}}
                                             </ul>
                                             <p>{{$post->describe}}</p>
-                                            <a href="/blog/post/4019" class="more">Đọc tiếp <i class="icon-angle-right"></i></a>
+                                            <a href={{ route('bai-viet.show', $post->id) }} class="more">Đọc tiếp <i class="icon-angle-right"></i></a>
                                         </div>
                                     </div>
                                     <hr class="blog-post-sep">

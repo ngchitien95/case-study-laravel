@@ -18,13 +18,12 @@ class CreateBillDetailTable extends Migration
             $table->unsignedBigInteger('id_bill');
 
             $table->unsignedBigInteger('id_product');
-            $table->unique('id_bill', 'id_product');
             $table->foreign('id_bill')->references('id')->on('bills')->onDelete('cascade');
 
             $table->foreign('id_product')->references('id')->on('products');
 
             $table->unsignedBigInteger('quanlitin');
-            $table->double('unit_price');
+            $table->string('unit_price');
             $table->timestamps();
         });
     }

@@ -26,7 +26,7 @@ Route::get('/lien-he',function(){
 Route::group(['prefix' => '/'], function () {
     Route::get('/','PageController@getIndex')->name('trang-chu');
     // Route::get('/quan-cf-ngon','PageController@getQuanCfNgon')->name('quan-cf-ngon');
-    Route::get('/cf','PageController@getCf')->name('cf');
+    // Route::get('/cf','PageController@getCf')->name('cf');
     // Route::get('/bai-viet','PageController@getBaiViet')->name('bai-viet');
     // Route::get('/lien-he','PageController@getLienHe')->name('lien-he');
   });
@@ -68,11 +68,14 @@ Route::group(['prefix' => 'bai-viet'], function () {
   Route::group(['prefix' => 'cf'], function () {
     Route::get('/','CfController@index')->name('cf');
     Route::get('/{id}/show','CfController@show')->name('cf.show');
+
+    Route::get('/cf-type/{id}','PageController@cfType')->name('cf.cfType');
+
     Route::get('/create','CfController@create')->name('cf.create')->middleware('auth');
     Route::post('/create','CfController@store')->name('cf.store')->middleware('auth');
     Route::get('/{id}/edit','CfController@edit')->name('cf.edit')->middleware('auth');
     Route::post('/{id}/edit','CfController@update')->name('cf.update')->middleware('auth');
-    Route::get('/{id}/destroy','CfController@destroy')->name('cf.destroy')->middleware('auth');
+    // Route::get('/{id}/destroy','CfController@destroy')->name('cf.destroy')->middleware('auth');
     Route::get('/keyword', 'CfController@search')->name('keyword.search');
     Route::get('/{id}/show-cf-type', 'CfController@show')->name('cf.showtype');
   });
@@ -102,10 +105,22 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/danh-muc-sp','AdminController@danhMucSp')->name('admin.danhMucSp');
     Route::get('/danh-muc-quan-cf','AdminController@danhMucQuanCf')->name('admin.danhMucQuanCf');
     Route::get('/danh-muc-bai-viet','AdminController@danhMucBaiviet')->name('admin.danhMucBaiviet');
+    Route::get('/quan-ly-don-hang','AdminController@quanLyDonHang')->name('admin.quanLyDonHang');
+    Route::get('/{id}/show-don-hang','AdminController@showDonHang')->name('admin.showDonHang');
+    Route::get('/keyword', 'AdminController@search')->name('admin.search');
+
+    Route::get('/delete/{id}', 'AdminController@deleteProduct')->name('admin.delete');
+    Route::get('/deleted', 'AdminController@deletedProduct')->name('admin.deleted');
+    Route::get('/restore/{id}', 'AdminController@restoreProduct')->name('admin.restore');
+
+
+
+
+
 
   });
 
-  Route::post('/save-cart','cartController@save_cart');
+  Route::post('/save-cart','cartController@save_cart')->name('save_cart');
   Route::post('/update-cart-quantity','cartController@update_cart_quantity');
 
   Route::get('/show-cart','cartController@show_cart')->name('show-cart.cart');

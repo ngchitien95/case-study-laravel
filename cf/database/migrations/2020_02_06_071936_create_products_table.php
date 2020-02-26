@@ -24,6 +24,8 @@ class CreateProductsTable extends Migration
             $table->longText('image');
             $table->string('unit',255);
             $table->tinyInteger('new');
+            $table->softDeletes();
+
 
             $table->timestamps();
         });

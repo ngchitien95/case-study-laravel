@@ -2,9 +2,11 @@
     <div class="py-5 bg-primary">
         <div class="container">
           <div class="row align-items-center justify-content-center">
-            <div class="col-md-6 text-center mb-3 mb-md-0">
-              {{-- <h2 class="text-uppercase text-white mb-4" data-aos="fade-up">Try For Your Next Project</h2>
-              <a href="#" class="btn btn-bg-primary font-secondary text-uppercase" data-aos="fade-up" data-aos-delay="100">Contact Us</a> --}}
+            <div class="col-md-6 text-center mb-9 mb-md-0">
+              <h4 class="text-uppercase text-white mb-4" data-aos="fade-up">GIAO HÀNG MIỄN PHÍ TOÀN QUỐC</H4>
+              <h3 class="text-uppercase text-white mb-4">LIÊN HỆ: 0935 096 425</h3>
+
+              {{-- <a href="#" class="btn btn-bg-primary font-secondary text-uppercase" data-aos="fade-up" data-aos-delay="100">Contact Us</a> --}}
             </div>
           </div>
         </div>
@@ -18,14 +20,15 @@
 
 
           <div class="row">
-            <div class="col-md-4 mb-4 mb-md-0">
-              <h3 class="footer-heading mb-4 text-white">About</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quos rem ullam, placeat amet.</p>
-              <p><a href="#" class="btn btn-primary text-white px-4">Read More</a></p>
+            <div class="col-md-6 mb-6 mb-md-0">
+              <h3 class="footer-heading mb-4 text-white">CÔNG TY CÀ PHÊ ĐỒNG XANH - GREENFIELDS COFFEE</h3>
+              <p>Công ty chúng tôi được thành lập từ năm 2016 bắt nguồn từ một xưởng rang nhỏ. Chúng tôi mong muốn đem cà phê không những SẠCH và phải NGON đến cho mọi người. Chúng tôi biết GU cà phê mỗi người là khác nhau, vậy nên chúng tôi tư vấn tạo GU cà phê riêng cho khách hàng của mình. Nếu bạn thích một GU cà phê nào đó, đừng ngần ngại liên hệ chúng tôi nhé.
+                Xin cảm ơn.</p>
+              {{-- <p><a href="#" class="btn btn-primary text-white px-4">Read More</a></p> --}}
             </div>
-            <div class="col-md-5 mb-4 mb-md-0 ml-auto">
-              <div class="row mb-4">
-                <div class="col-md-6">
+            <div class="col-md-6 mb-6 mb-md-0 ml-auto">
+              {{-- <div class="row mb-4"> --}}
+                {{-- <div class="col-md-6">
                   <h3 class="footer-heading mb-4 text-white">Quick Menu</h3>
                     <ul class="list-unstyled">
                       <li><a href="#">Home</a></li>
@@ -34,31 +37,35 @@
                       <li><a href="#">Contacts</a></li>
                       <li><a href="#">Privacy</a></li>
                     </ul>
-                </div>
+                </div> --}}
                 <div class="col-md-6">
-                  <h3 class="footer-heading mb-4 text-white">Free Templates</h3>
+                  <h3 class="footer-heading mb-4 text-white">Liên hệ</h3>
                     <ul class="list-unstyled">
-                      <li><a href="#">HTML5 / CSS3</a></li>
-                      <li><a href="#">Clean Design</a></li>
-                      <li><a href="#">Responsive</a></li>
-                      <li><a href="#">Multi Purpose Template</a></li>
+                        <h5>
+                            Trụ sở chính:
+                            Địa chỉ: 118 Lý Nam Đế, phường Kim Long, thành phố Huế, TT Huế, Việt Nam
+                            Điện thoại: 0931 931 144 - 0931 931 414
+                        </h5>
+                     <h5>
+                        Hộp thư: greenfieldscoffee.com@gmail.com
+                      </h5>
                     </ul>
                 </div>
               </div>
 
-              <div class="row mb-5">
+              {{-- <div class="row mb-5">
                 <div class="col-md-12">
                 <h3 class="footer-heading mb-4 text-white">Stay up to date</h3>
                 <form action="#" class="d-flex footer-subscribe">
                   <input type="text" class="form-control rounded-0" placeholder="Enter your email">
                   <input type="submit" class="btn btn-primary rounded-0" value="Subscribe">
                 </form>
-              </div>
+              </div> --}}
               </div>
             </div>
 
 
-            <div class="col-md-2">
+            {{-- <div class="col-md-2">
 
               <div class="row">
               <div class="col-md-12"><h3 class="footer-heading mb-4 text-white">Social Icons</h3></div>
@@ -72,13 +79,13 @@
                   </p>
                 </div>
             </div>
-            </div>
+            </div> --}}
           </div>
-          <div class="row pt-5 mt-5 text-center">
+          <div class="row pt-3 mt-3 text-center">
             <div class="col-md-12">
               <p>
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="{{asset('neos/https://colorlib.com')}}" target="_blank" >Colorlib</a>
+              Nguồn: Tham khảo thư viện bootstrap. Cám ơn mọi người đả theo giỏi bài casestudy - laravel - Chí Tiến c10 Full
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
               </p>
 
