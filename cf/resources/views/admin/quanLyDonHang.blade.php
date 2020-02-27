@@ -25,7 +25,9 @@
                         <tr>
                             <th>Tên khách hàng</th>
                             <th>Điện thoại</th>
+                            <th>Ghi chú</th>
                             <th>Tổng tiền</th>
+                            <th>Tình trạng</th>
                             <th>action</th>
 
 
@@ -36,20 +38,24 @@
                     </thead>
                     <tbody class="bg-warning">
                         @foreach ($customers as $cus)
-                        @foreach ($bills as $bill)
-
 
                     <tr>
                         <td class="text-light bg-dark">{{$cus->name}}</td>
                         <td class="text-light bg-dark">{{$cus->phone_number}}</td>
+                        <td class="text-light bg-dark">{{$cus->note}}</td>
+                        @foreach ($cus->bills as $bill)
+
                         <td class="text-light bg-dark">{{$bill->total}}</td>
+                        @endforeach
+
+                        <td class="text-light bg-dark">{{$cus->status}}</td>
+
 
                         <td class="text-light bg-dark">
-                            <a href="{{ route('admin.showDonHang',$bill->id)}}" class="btn btn-primary"><i class="fa fa-search"></i></a>
-                            <a href="{{ route('bai-viet.destroy',$bill->id)}}" class="btn btn-primary" ><i class="fa fa-arrows"></i></a>
+                            <a href="{{ route('admin.showDonHang',$cus->id)}}" class="btn btn-primary"><i class="fa fa-search"></i></a>
+                            {{-- <a href="{{ route('bai-viet.destroy',$cus->id)}}" class="btn btn-primary" ><i class="fa fa-arrows"></i></a> --}}
                         </td>
                     </tr>
-                        @endforeach
                         @endforeach
                     </tbody>
                 </table>

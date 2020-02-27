@@ -1,4 +1,3 @@
-
 @extends('home')
 @section('admin_content')
 <html>
@@ -9,11 +8,12 @@
         <link rel="stylesheet" href="content/site.css">
     </head>
     <body>
+
         <div class="container">
             @if(Session::has('success'))
             <p class="alert alert-info">{{ Session::get('success') }}</p>
             @endif
-            <h2>Các bài viết</h2>
+            <h2>Quán cà phê ngon</h2>
 
             {{-- <a href="javascript:void(0);" class="btn btn-primary" title="Add Product" onclick="product.openModel()">
                 <i class="fa fa-plus"></i>
@@ -23,7 +23,7 @@
                 <table id="tbProduct" class="table table-striped">
                     <thead class="thead-dark">
                         <tr>
-                            <th>Tên bài viết</th>
+                            <th>Tên tiêu đề</th>
                             <th>Actions</th>
 
                             {{-- <th>Desciption</th>
@@ -31,12 +31,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($baiviets as $baiviet)
+                        @foreach ($deleted as $quan)
                     <tr>
-                        <td class="text-light bg-dark">{{$baiviet->title}}</td>
+                        <td class="text-light bg-dark">{{$quan->title}}</td>
                         <td class="text-light bg-dark">
-                            <a href="{{ route('bai-viet.edit',$baiviet->id)}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                            <a href="{{ route('admin.deleteBaiviet',$baiviet->id)}}" class="btn btn-primary" ><i class="fa fa-trash"></i></a>
+                            <a href="{{ route('admin.restoreQuanCfNgon',$quan->id)}}" class="btn btn-primary"><i >Khôi phục</i></a>
+                            {{-- <a href="{{ route('QuanCfNgon.destroy',$quan->id)}}" class="btn btn-primary" ><i class="fa fa-trash"></i></a> --}}
 
                     </td>
                     </tr>

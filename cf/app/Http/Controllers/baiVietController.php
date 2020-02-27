@@ -143,17 +143,17 @@ class baiVietController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        $baiViet = BaiViet::findOrFail($id);
-        $baiViet->delete();
+    // public function destroy($id)
+    // {
+    //     $baiViet = BaiViet::findOrFail($id);
+    //     $baiViet->delete();
 
-        //dung session de dua ra thong bao
-        Session::flash('success', 'Xóa bài viết thành công');
+    //     //dung session de dua ra thong bao
+    //     Session::flash('success', 'Xóa bài viết thành công');
 
-        //xoa xong quay ve trang danh sach bài viết
-        return redirect()->route('admin.danhMucBaiviet');
-    }
+    //     //xoa xong quay ve trang danh sach bài viết
+    //     return redirect()->route('admin.danhMucBaiviet');
+    // }
 
 
 }

@@ -34,15 +34,15 @@ class AdminController extends Controller
         return View('admin.danhMucBaiviet', ['baiviets' => baiviet::all()]);
     }
     public function quanLyDonHang(){
-        return View('admin.quanLyDonHang', ['bills' => Bill::all(), 'customers' => customer::all(), 'BillDetails' => BillDetail::all()]);
+        return View('admin.quanLyDonHang', [ 'customers' => customer::all(),'bills' => Bill::all(), 'BillDetails' => BillDetail::all()]);
 
     }
     public function showDonHang($id){
-        $bills = Bill::all();
-        $billdetais = BillDetail::all();
-        $customers = customer::all();
-        $products = Product::all();
-           return view('admin.showDonHang',compact('bills','billdetais','customers','products'));
+        $bills = Bill::find($id);
+        // $billdetais = BillDetail::find($id);
+        // $customers = customer::find($id);
+        // $products = Product::find($id);
+           return view('admin.showDonHang',compact('bills'));
     }
 
     public function search(){
@@ -68,6 +68,38 @@ class AdminController extends Controller
         return redirect()->route('admin.danhMucSp');
 
     }
+    public function deleteBaiviet($id){
+        BaiViet::destroy($id);
+            session::put('message', 'xóa sản phẩm thành công');
+            return redirect()->back();
+    }
+
+    public function deletedBaiviet(){
+        $deleted = BaiViet::onlyTrashed()->get();
+        return view('admin.deletedBaiviet',compact('deleted'));
+    }
+    public function restoreBaiviet($id){
+        $restore = BaiViet::onlyTrashed()->where('id', '=', $id)->restore();
+        return redirect()->route('admin.danhMucBaiviet');
+
+    }
+
+    public function deleteQuanCfNgon($id){
+        QuanCfNgon::destroy($id);
+            session::put('message', 'xóa sản phẩm thành công');
+            return redirect()->back();
+    }
+
+    public function deletedQuanCfNgon(){
+        $deleted = QuanCfNgon::onlyTrashed()->get();
+        return view('admin.deletedQuanCfNgon',compact('deleted'));
+    }
+    public function restoreQuanCfNgon($id){
+        $restore = QuanCfNgon::onlyTrashed()->where('id', '=', $id)->restore();
+        return redirect()->route('admin.danhMucQuanCf');
+
+    }
+
 
 
 

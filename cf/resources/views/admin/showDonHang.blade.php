@@ -13,19 +13,27 @@
             <th>Email</th>
             <th>Địa Chỉ</th>
             <th>Số Điện Thoại</th>
+            <th>Ghi chú</th>
+
             <th style="width:30px;"></th>
           </tr>
         </thead>
         <tbody>
-        @foreach ($customers as $cus)
+            <?php
+                // dd($customers)
+            ?>
 
           <tr>
-            <td>{{$cus->name}}</td>
-            <td>{{$cus->email}}</td>
-            <td>{{$cus->address}}</td>
-            <td>{{$cus->phone_number}}</td>
+            <td>{{$bills->customer->name}}</td>
+            <td>{{$bills->customer->email}}</td>
+            <td>{{$bills->customer->address}}</td>
+            <td>{{$bills->customer->phone_number}}</td>
+            <td>{{$bills->customer->note}}</td>
+
+            {{-- <td>{{$customers->email}}</td>
+            <td>{{$customers->address}}</td>
+            <td>{{$customers->phone_number}}</td> --}}
           </tr>
-          @endforeach
 
         </tbody>
       </table>
@@ -45,83 +53,34 @@
             <th>Tên Sản Phẩm</th>
             <th>Số Lượng</th>
             <th>Giá Sản Phẩm</th>
-            <th>Tổng Tiền</th>
             <th style="width:30px;"></th>
           </tr>
         </thead>
         <tbody>
-          @foreach($billdetais as $billdetai)
-
-
-          <tr>
-
-                @foreach ($products as $product)
-                    @if ($billdetai->id_product === $product->id)
-                     <td>{{$product->name}}</td>
-                    @endif
-                @endforeach
-
-            <td>{{$billdetai->quanlitin}}</td>
-            <td>{{$billdetai->unit_price}}</td>
-            {{-- @foreach ($bills as $bill)
-            @if ($bill->id === $billdetai->id_bill)
-            <td>{{$bill->total}}</td>
-            @endif
-
-            @endforeach --}}
-
-            <td>{{$billdetai->quanlitin * $billdetai->unit_price }}</td>
-          </tr>
-          @endforeach
+          {{-- @foreach ( $products as $pro) --}}
+          @foreach ($bills->bill_detail as $detail)
 
           <tr>
-            <th><u>Tổng Tiền Hoá Đơn:</u></th>
-            <td></td>
-            <td></td>
-            @foreach ($bills as $bill)
+          {{-- <th>{{$products->name}}</th> --}}
+          <th>{{$detail->product->name}}</th>
+          <th>{{$detail->quanlitin}}</th>
+          <th>{{$detail->unit_price}}</th>
 
-            <td><u><b>{{$bill->total}}</b></u></td>
-            @endforeach
-
-          </tr>
+          {{-- <th>{{$detail->quanlitin}}</th>
+          <th>{{$detail->unit_price}}</th>
+          <th>{{$detail->bill->total}}</th> --}}
+        </tr>
+        @endforeach
+        <th>Tổng tiền</th>
+        <th></th>
+    <th>{{$bills->total}}</th>
+          {{-- @endforeach --}}
         </tbody>
       </table>
     </div>
   </div>
 </div>
 <br><br>
-<div class="table-agile-info">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      Thông Tin Giao Hàng
-    </div>
-    <div class="table-responsive">
-      <table class="table table-striped b-t b-light">
-        <thead>
-          <tr>
-            <th>Tên Người Nhận Hàng</th>
-            <th>Địa Chỉ</th>
-            <th>Số Điện Thoại</th>
-            <th>Ghi Chú</th>
-            <th style="width:30px;"></th>
-          </tr>
-        </thead>
-        <tbody>
-            @foreach ($customers as $cus)
-
-          <tr>
-            <td>{{$cus->name}}</td>
-            <td>{{$cus->address}}</td>
-            <td>{{$cus->phone_number}}</td>
-            <td>{{$cus->note}}</td>
-          </tr>
-            @endforeach
-
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
 
 
 

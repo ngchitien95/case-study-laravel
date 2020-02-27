@@ -100,7 +100,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="sub">
 						<li><a href="{{ route('cf.create') }}">Thêm sản phẩm</a></li>
                         <li><a href="{{ route('admin.danhMucSp') }}">Liệt kê các sản phẩm</a></li>
-						<li><a href="{{ route('admin.deleted') }}">Các sản phẩm đả xóa</a></li>
+						<li><a href="{{ route('admin.deleted') }}">Các sản phẩm đã xóa</a></li>
 
                     </ul>
                 </li>
@@ -108,11 +108,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
-                        <span>Danh mục quán cà phê ngon</span>
+                        <span>Danh mục quán cf ngon ở Huế</span>
                     </a>
                     <ul class="sub">
 						<li><a href="{{ route('QuanCfNgon.create') }}">Thêm quán cà phê</a></li>
-						<li><a href="{{ route('admin.danhMucQuanCf') }}">Liệt kê các quán cà phê</a></li>
+                        <li><a href="{{ route('admin.danhMucQuanCf') }}">Liệt kê các quán cà phê</a></li>
+                        <li><a href="{{ route('admin.deletedQuanCfNgon') }}">Các quán đã xóa</a></li>
+
                         {{-- <li><a href="grids.html">Grids</a></li> --}}
                     </ul>
                 </li>
@@ -124,7 +126,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <ul class="sub">
 						<li><a href="{{ route('bai-viet.create') }}">Thêm bài viết</a></li>
-						<li><a href="{{ route('admin.danhMucBaiviet') }}">liệt kê các bài viết</a></li>
+                        <li><a href="{{ route('admin.danhMucBaiviet') }}">Liệt kê các bài viết</a></li>
+                        <li><a href="{{ route('admin.deletedBaiviet') }}">Các bài viết đã xóa</a></li>
+
+
                         {{-- <li><a href="grids.html">Grids</a></li> --}}
                     </ul>
                 </li>
@@ -136,7 +141,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <ul class="sub">
 						<li><a href="{{ route('admin.quanLyDonHang') }}">Danh sách đặt hàng</a></li>
-						<li><a href="{{ route('admin.danhMucBaiviet') }}">Danh sách giao hàng</a></li>
+						{{-- <li><a href="{{ route('admin.danhMucBaiviet') }}">Danh sách giao hàng</a></li> --}}
                         {{-- <li><a href="grids.html">Grids</a></li> --}}
                     </ul>
                 </li>

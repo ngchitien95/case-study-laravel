@@ -13,30 +13,22 @@
             @if(Session::has('success'))
             <p class="alert alert-info">{{ Session::get('success') }}</p>
             @endif
-            <h2>Các bài viết</h2>
-
-            {{-- <a href="javascript:void(0);" class="btn btn-primary" title="Add Product" onclick="product.openModel()">
-                <i class="fa fa-plus"></i>
-                Add Product
-            </a> --}}
+            <h2>Các bài viết đã xóa</h2>
             <div class="mt-2">
                 <table id="tbProduct" class="table table-striped">
                     <thead class="thead-dark">
                         <tr>
                             <th>Tên bài viết</th>
                             <th>Actions</th>
-
-                            {{-- <th>Desciption</th>
-                            <th>Manufactory</th> --}}
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($baiviets as $baiviet)
+                        @foreach ($deleted as $del)
                     <tr>
-                        <td class="text-light bg-dark">{{$baiviet->title}}</td>
+                        <td class="text-light bg-dark">{{$del->title}}</td>
                         <td class="text-light bg-dark">
-                            <a href="{{ route('bai-viet.edit',$baiviet->id)}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                            <a href="{{ route('admin.deleteBaiviet',$baiviet->id)}}" class="btn btn-primary" ><i class="fa fa-trash"></i></a>
+                            {{-- <a href="{{ route('bai-viet.edit',$baiviet->id)}}" class="btn btn-primary"><i class="fa fa-edit"></i></a> --}}
+                            <a href="{{ route('admin.restoreBaiviet',$del->id)}}" class="btn btn-primary" ><i>Khôi phục</i></a>
 
                     </td>
                     </tr>

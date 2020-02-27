@@ -109,9 +109,21 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/{id}/show-don-hang','AdminController@showDonHang')->name('admin.showDonHang');
     Route::get('/keyword', 'AdminController@search')->name('admin.search');
 
-    Route::get('/delete/{id}', 'AdminController@deleteProduct')->name('admin.delete');
-    Route::get('/deleted', 'AdminController@deletedProduct')->name('admin.deleted');
-    Route::get('/restore/{id}', 'AdminController@restoreProduct')->name('admin.restore');
+    Route::get('/delete-product/{id}', 'AdminController@deleteProduct')->name('admin.delete');
+    Route::get('/deleted-product', 'AdminController@deletedProduct')->name('admin.deleted');
+    Route::get('/restore-product/{id}', 'AdminController@restoreProduct')->name('admin.restore');
+
+    Route::get('/delete-post/{id}', 'AdminController@deleteBaiviet')->name('admin.deleteBaiviet');
+    Route::get('/deleted-post', 'AdminController@deletedBaiviet')->name('admin.deletedBaiviet');
+    Route::get('/restore-post/{id}', 'AdminController@restoreBaiviet')->name('admin.restoreBaiviet');
+
+
+    Route::get('/delete-CoffeeShop/{id}', 'AdminController@deleteQuanCfNgon')->name('admin.deleteQuanCfNgon');
+    Route::get('/deleted-CoffeeShop', 'AdminController@deletedQuanCfNgon')->name('admin.deletedQuanCfNgon');
+    Route::get('/restore-CoffeeShop/{id}', 'AdminController@restoreQuanCfNgon')->name('admin.restoreQuanCfNgon');
+
+
+
 
 
 
