@@ -38,8 +38,9 @@ class CfController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateAttribute();
-
+        // $this->validateAttribute();
+        // $atri = $request->all();
+        // dd($atri);
         $image = request('image');
         $image = base64_encode(file_get_contents($image));
         $image = 'data:image/png;base64,' . $image;

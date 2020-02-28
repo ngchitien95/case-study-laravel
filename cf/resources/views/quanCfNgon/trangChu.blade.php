@@ -17,7 +17,7 @@
                                             <img class="img-responsive" height="200" width="200" alt="" src="{{$quan->image}}">
                                         </div>
                                         <div class="col-md-8 col-sm-8">
-                                            <h2><a href="/coffeeshop/post/4017">{{ $quan->title}}</a></h2>
+                                            <h2><a href="{{ route('quan-cf-ngon.show', $quan->id) }}">{{ $quan->title}}</a></h2>
                                             <ul class="blog-info">
                                                 {{-- <li><i class="fa fa-user"></i> Thảo</li>
                                                 <li><i class="fa fa-calendar"></i> 18/10/2019</li>

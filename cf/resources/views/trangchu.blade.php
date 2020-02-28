@@ -27,13 +27,13 @@ THIẾT BỊ HIỆN ĐẠI ĐÚNG CHUẨN</h1>
     </div>
   </div>
 
-  <div class="slant-1"></div>
+  {{-- <div class="slant-1"></div> --}}
 
   <div class="site-section first-section">
     <div class="container">
       <div class="row mb-5">
-        <div class="col-md-12 text-center" data-aos="fade">
-          <span class="caption d-block mb-2 font-secondary font-weight-bold">NƠI KHỞI ĐẦU CHO NHỮNG THÀNH CÔNG</span>
+        <div class="col-md-12 text-center pt-5" data-aos="fade">
+          <span class="caption d-block mb-2 font-secondary font-weight-bold ">NƠI KHỞI ĐẦU CHO NHỮNG THÀNH CÔNG</span>
           <h2 class="site-section-heading text-uppercase text-center font-secondary">UY TÍN TẠO NÊN THƯƠNG HIỆU</h2>
         </div>
       </div>
@@ -43,8 +43,8 @@ THIẾT BỊ HIỆN ĐẠI ĐÚNG CHUẨN</h1>
 
   @foreach ($new_productType1 as $type)
 
-<div class="site-half">
-    <div class="img-bg-1" style="background-image:  url('{{asset('neos/images/truyenthong.jpg')}}');" data-aos="fade"></div>
+<div class="site-half pt-5" >
+    <div class="img-bg-1" style="background-image:  url('{{asset('neos/images/truyenthong.jpg')}}');" ></div>
   <div class="container">
     <div class="row no-gutters align-items-stretch">
 
@@ -67,7 +67,7 @@ THIẾT BỊ HIỆN ĐẠI ĐÚNG CHUẨN</h1>
           <div class="media-image">
             <a href="single.html"><img src="{{$product->image}}" alt="Image" class="img-fluid"></a>
             <div class="media-image-body">
-              <h2 class="font-secondary text-uppercase"><a href="single.html">{{ $product->name}}</a></h2>
+              <h2 class="font-secondary text-uppercase"><a href="{{route('cf.show', $product->id) }}">{{ $product->name}}</a></h2>
             <span class="d-block mb-3" style="color:red" >Giá  {{ $product->promotion_price}} &mdash;
                 <form action="{{route ('save_cart')}}" method="post">
                     @csrf
@@ -110,7 +110,7 @@ THIẾT BỊ HIỆN ĐẠI ĐÚNG CHUẨN</h1>
           <div class="media-image">
             <a href="single.html"><img src="{{$product->image}}" alt="Image" class="img-fluid"></a>
             <div class="media-image-body">
-              <h2 class="font-secondary text-uppercase"><a href="single.html">{{ $product->name}}</a></h2>
+              <h2 class="font-secondary text-uppercase"><a href="{{route('cf.show', $product->id) }}">{{ $product->name}}</a></h2>
               <span class="d-block mb-3" style="color:red" >
                 Giá  {{ $product->promotion_price}} &mdash;
                 <form action="{{route ('save_cart')}}" method="post">

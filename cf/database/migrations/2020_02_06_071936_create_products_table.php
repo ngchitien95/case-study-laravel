@@ -19,14 +19,10 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('id_type');
             $table->foreign('id_type')->references('id')->on('type_products');
             $table->string('description');
-            $table->string('unit_price');
             $table->string('promotion_price');
             $table->longText('image');
-            $table->string('unit',255);
-            $table->tinyInteger('new');
+            $table->string('unit');
             $table->softDeletes();
-
-
             $table->timestamps();
         });
     }

@@ -108,6 +108,16 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/quan-ly-don-hang','AdminController@quanLyDonHang')->name('admin.quanLyDonHang');
     Route::get('/{id}/show-don-hang','AdminController@showDonHang')->name('admin.showDonHang');
     Route::get('/keyword', 'AdminController@search')->name('admin.search');
+    // thanh toán
+    Route::get('/{id}/paymen-bill', 'AdminController@paymenBill')->name('admin.paymenBill');
+    Route::get('/{id}/debit_order', 'AdminController@debit_order')->name('admin.debit_order');
+
+    // xoa don hang
+    Route::get('/delete-bill/{id}', 'AdminController@deleteDonHang')->name('admin.deleteDonHang');
+    Route::get('/deleted-bill', 'AdminController@deletedDonHang')->name('admin.deletedDonHang');
+    Route::get('/restore-bill/{id}', 'AdminController@restoreDonHang')->name('admin.restoreDonHang');
+
+
 
     Route::get('/delete-product/{id}', 'AdminController@deleteProduct')->name('admin.delete');
     Route::get('/deleted-product', 'AdminController@deletedProduct')->name('admin.deleted');
@@ -121,14 +131,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/delete-CoffeeShop/{id}', 'AdminController@deleteQuanCfNgon')->name('admin.deleteQuanCfNgon');
     Route::get('/deleted-CoffeeShop', 'AdminController@deletedQuanCfNgon')->name('admin.deletedQuanCfNgon');
     Route::get('/restore-CoffeeShop/{id}', 'AdminController@restoreQuanCfNgon')->name('admin.restoreQuanCfNgon');
-
-
-
-
-
-
-
-
 
   });
 

@@ -13,8 +13,8 @@
             @if(Session::has('success'))
             <p class="alert alert-info">{{ Session::get('success') }}</p>
             @endif
-            <h2>Kết quả tìm kiếm</h2>
-            <h5>Đã tìm thấy {{ $customers->count() }} đơn hàng</h5>
+            <h2>Liệt kê đơn hàng</h2>
+
             {{-- <a href="javascript:void(0);" class="btn btn-primary" title="Add Product" onclick="product.openModel()">
                 <i class="fa fa-plus"></i>
                 Add Product
@@ -45,35 +45,37 @@
                         <td class="text-light bg-dark">{{$cus->phone_number}}</td>
                         <td class="text-light bg-dark">{{$cus->note}}</td>
                         <td class="text-light bg-dark">{{$cus->created_at}}</td>
-                        @foreach ($cus->bills as $bill)
+                        @foreach ($cus->deleted as $bill)
 
                         <td class="text-light bg-dark">{{$bill->total}}</td>
-                        @endforeach
 
                         {{-- <td class="text-light bg-dark">{{$cus->status}}</td> --}}
-                        {{-- thử cái nút trạng thái --}}
+                        {{-- cái nút trạng thái --}}
                         <td class="text-light bg-dark">
                              <span class="text-ellipsis">
                             <?php
-                             if($cus->status==1)
+                             if($bill->status==1)
                              {
                             ?>
-                            <a onclick="return confirm('Thanh toán đơn hàng')" href="{{route('admin.paymenBill',$cus->id)}} " class="btn btn-primary">
+                            <a onclick="return confirm('Duyệt đơn hàng đơn hàng')" href="{{route('admin.paymenBill',$bill->id)}} " class="btn btn-primary">
                              <i>Chưa duyệt đơn</i></a>
 
                             <?php
                             }else{
                              ?>
-                            <a href="{{route('admin.debit_order',$cus->id)}}"class="btn btn-primary">
-                            <i>đã duyệt đơn</i></a>
+                            <a onclick="return confirm('Bỏ duyệt đơn hàng đơn hàng')" href="{{route('admin.debit_order',$bill->id)}}"class="btn btn-primary">
+                            <i>Đã duyệt đơn</i></a>
                              <?php
                             }
                             ?>
                             </span>
                         </td>
+                        @endforeach
+
 
                          <td class="text-light bg-dark">
                             <a href="{{ route('admin.showDonHang',$cus->id)}}" class="btn btn-primary"><i class="fa fa-search"></i></a>
+                            <a href="{{ route('admin.deleteDonHang',$cus->id)}}" class="btn btn-primary" ><i class="fa fa-trash"></i></a>
 
 
                         </td>
@@ -84,8 +86,6 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-
         </div>
 
     </body>

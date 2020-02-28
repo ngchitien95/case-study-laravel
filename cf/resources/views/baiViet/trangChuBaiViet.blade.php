@@ -17,7 +17,7 @@
                                             <img class="img-responsive" alt="" height="200" width="200" src="{{$post->image}}">
                                         </div>
                                         <div class="col-md-8 col-sm-8">
-                                            <h2><a href="/blog/post/4019">{{$post->title}}</a></h2>
+                                            <h2><a href={{ route('bai-viet.show', $post->id) }}>{{$post->title}}</a></h2>
                                             <ul class="blog-info">
                                                 {{-- <li><i class="fa fa-user"></i> Thảo</li> --}}
                                                 <li><i class="fa fa-calendar"></i>{{$post->created_at}}</li>
@@ -41,7 +41,7 @@
                         </div>
                         <!-- END LEFT SIDEBAR -->
                         <!-- BEGIN RIGHT SIDEBAR -->
-                        <div class="col-md-4 col-sm-4 blog-sidebar">
+                        {{-- <div class="col-md-4 col-sm-4 blog-sidebar">
                             <!-- CATEGORIES START -->
 
                             <!-- CATEGORIES END -->
@@ -59,7 +59,7 @@
                                     <p>Không có bài viết</p>
                             </div>
                             <!-- END MOST READ -->
-                        </div>
+                        </div> --}}
                         <!-- END RIGHT SIDEBAR -->
                     </div>
                 </div>

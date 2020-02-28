@@ -52,6 +52,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <ul class="nav pull-right top-menu">
         <li>
             <div class="beta-comp">
+                <h3>Nice to meet you: {{Auth::user()->name}}</h3>
+            </div>
+
+        </li>
+        <li>
+            <div class="beta-comp">
                 <form role="search" method="get" id="searchform" action="{{route('admin.search')}}">
                     <input type="text" value="" name="key" id="s" placeholder="Nhập từ khóa..." />
                     <button class="fa fa-search" type="submit" id="searchsubmit"></button>
@@ -60,7 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             {{-- <input type="text" class="form-control search" placeholder=" Search"> --}}
         </li>
         <!-- user login dropdown start-->
-        <li class="dropdown">
+        {{-- <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <img alt="" src="/web/images/2.png">
             <span class="username">{{Auth::user()->name}}</span>
@@ -71,7 +77,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li><a href="#"><i class="fa fa-cog"></i> Cài đặt</a></li>
                 <li><a href="login.html"><i class="fa fa-key"></i> Đăng xuất</a></li>
             </ul>
-        </li>
+        </li> --}}
         <!-- user login dropdown end -->
 
     </ul>
@@ -141,7 +147,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <ul class="sub">
 						<li><a href="{{ route('admin.quanLyDonHang') }}">Danh sách đặt hàng</a></li>
-						{{-- <li><a href="{{ route('admin.danhMucBaiviet') }}">Danh sách giao hàng</a></li> --}}
+						<li><a href="{{ route('admin.deletedDonHang') }}">Đơn hàng đã xóa</a></li>
                         {{-- <li><a href="grids.html">Grids</a></li> --}}
                     </ul>
                 </li>

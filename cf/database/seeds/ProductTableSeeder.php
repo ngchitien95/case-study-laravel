@@ -16,11 +16,9 @@ class ProductTableSeeder extends Seeder
         $product->name = 'CÀ PHÊ PHIN GIẤY GU ĐẬM/ STRONG';
         $product->id_type = 2;
         $product->description = "Cà phê phin giấy Gu Đậm vị đậm đà gần giống với vị của cà phê phin bạn thường uống, đặc biệt vị cà phê hoàn toàn không chua. Phù hợp với những khách hàng thích hương vị mạnh mẽ.";
-        $product->unit_price=45000;
         $product->promotion_price=42000;
         $product->image = "abc";
         $product->unit ='hộp';
-        $product->new= 1 ;
         $product->content='Cà phê phin giấy Gu Đậm
 
         Mỗi hộp cà phê phin giấy Gu Đậm gồm 5 gói chứa 5 phin giấy, mỗi phin giấy 16gr cà phê, mở phin chúng ta có thể pha đúng 1 ly cà phê đậm đắng nếu lượng nước vừa phải. Khách hàng có sở thích uống nhạt hãy pha nhiều nước hơn để được ly cà phê như ý muốn của mình.
@@ -59,11 +57,9 @@ class ProductTableSeeder extends Seeder
         $product->name = 'CÀ PHÊ PHIN GIẤY GU VỪA/ MEDIUM';
         $product->id_type = 2;
         $product->description = "Cà phê phin giấy Gu vừa vị cà phê đậm đà, hậu vị ngọt và vị chua rất nhẹ khi thưởng thức. Phù hợp với những khách hàng thích Gu cà phê nhẹ nhàng.";
-        $product->unit_price=55000;
         $product->promotion_price=53000;
         $product->image = "abc";
         $product->unit ='hộp';
-        $product->new= 1 ;
         $product->content='Cà phê phin giấy Gu Vừa
 
         Tách cà phê được pha ra từ hạt Robusta với tỷ lệ cà phê hái chín cây gần như 100% sẽ đáp ứng được yêu cầu cả hương và vị của người sử dụng. Đậm, đắng nhẹ, lượng cafein vừa đủ làm cho tinh thần tỉnh táo và tăng khả năng tập trung cho người sử dụng. Nếu bạn không ngại về lượng cafein, Greenfields Coffee giới thiệu đến dòng sản phẩm cà phê phin giấy Gu Vừa
@@ -97,11 +93,9 @@ class ProductTableSeeder extends Seeder
         $product->name = 'CÀ PHÊ PHIN GIẤY GU THƠM / FLAVOUR';
         $product->id_type = 2;
         $product->description = "Cà phê phin giấy Gu Thơm vị cà phê có độ chua mạnh, thơm nhẹ nhàng, lượng cafein thấp nhất trong 3 dòng cà phê phin giấy. Phù hợp với khách hàng thích Arabica.";
-        $product->unit_price=70000;
         $product->promotion_price=65000;
         $product->image = "abc";
         $product->unit ='hộp';
-        $product->new= 1 ;
         $product->content='Cà phê phin giấy Gu Thơm
 
         Cà phê phin giấy Gu Thơm rất phù hợp với những khách hàng chuộng cà phê có vị chua, ít cafein. Cà phê phin giấy Gu Thơm sẽ là sản phẩm cà phê đáp ứng tốt cho nhu cầu cà phê du lịch, công tác, cà phê ít cafein vẫn có thể giúp chúng ta tỉnh táo khi làm việc, đảm bảo năng lượng cho một ngày vi vu chiêm ngưỡng cảnh đẹp.
@@ -138,11 +132,9 @@ class ProductTableSeeder extends Seeder
         $product->name = 'PHIN TRUYỀN THỐNG/ CLASSIC 500G';
         $product->id_type = 1;
         $product->description = "Cà phê Truyền Thống được sản xuất từ hạt Robusta tiêu chuẩn, vị đậm, đắng, đúng Gu cà phê pha phin.";
-        $product->unit_price=70000;
         $product->promotion_price=65000;
         $product->image = "abc";
         $product->unit ='hộp';
-        $product->new= 1 ;
         $product->content='Một gói cà phê pha phin nhỏ nhất dòng CLASSIC có khối lượng 500 g, pha được khoảng 25 ly cà phê, mỗi ly 25 g.
 
         Bạn đã quen với vị cà phê đậm, đắng khi uống có thể thêm 1 ít đường, 1 ít sữa tùy theo sở thích nhưng vị cà phê vẫn đậm đà và thoang thoảng hương cà phê khắp phòng thì CLASSIC sẽ là lựa chọn đúng đắn nhất.
@@ -175,11 +167,9 @@ class ProductTableSeeder extends Seeder
         $product->name = 'CÀ PHÊ PHIN GU ĐẬM/ STRONG 250G';
         $product->id_type = 1;
         $product->description = "Cà phê pha phin Gu Đậm được sản xuất 100% hạt Robusta 1, vị cà phê đậm đà, đắng và không chua.";
-        $product->unit_price=60000;
         $product->promotion_price=58000;
         $product->image = "abc";
         $product->unit ='hộp';
-        $product->new= 1 ;
         $product->content='Cà phê phin truyền thống Gu Đậm được sản xuất từ hạt Robusta tiêuchuẩn có quá trình chế biến kỹ lưỡng và tỷ lệ cà phê chín cây khá cao nên tách cà phê bạn thưởng thức sẽ có vị ngọt từ đường tự nhiên của hạt cà phê mang lại đồng thời nó hạn chế tối đa vị chát từ trái cà phê thu hoạch xanh.
         Thành phần cà phê
         Cà phê phin truyền thống Gu Đậm được kết hợp bởi hai loại hạt cà phê: Robusta tiêu chuẩn xuất khẩu Châu Âu và Robusta Premium.
@@ -206,11 +196,9 @@ class ProductTableSeeder extends Seeder
         $product->name = 'CÀ PHÊ PHIN GU VỪA/ MEDIUM 250G';
         $product->id_type = 1;
         $product->description = "Cà phê Gu Vừa được sản xuất 100% hạt Robusta cao cấp và Arabica , vị cà phê đậm, đắng nhẹ và hơi chua.";
-        $product->unit_price=70000;
         $product->promotion_price=65000;
         $product->image = "abc";
         $product->unit ='hộp';
-        $product->new= 1 ;
         $product->content='Cà phê pha phin Gu Vừa có vị chua nhẹ, hương thơm của cây cỏ, ít đắng và vị cà phê không quá đậm đặc biệt hàm lượng cafein thấp bởi thành phần của hai dòng cà phê này có sự góp mặt của cả Arabica và Robusta premium.
 
         Cà phê pha phin Gu Vừa là sự hòa quyện của hai loại hạt tạo nên một Gu cà phê đặc biệt cho người thưởng thức. Nếu bạn uống cà phê và thưởng thức quen những tách cà phê pha máy nơi công sở hoặc quán cà phê, Cà phê pha phin Gu Vừa sẽ đáp ứng rất tốt cho Gu cà phê của bạn khi pha tại nhà.
@@ -245,11 +233,9 @@ class ProductTableSeeder extends Seeder
         $product->name = 'CÀ PHÊ PHIN GU THƠM/ FLAVOUR 250G';
         $product->id_type = 1;
         $product->description = "Cà phê phin Gu Thơm được sản xuất từ hạt Arabica, rất phù hợp với khách hàng chuộng vị chua và ít cafein.";
-        $product->unit_price=95000;
         $product->promotion_price=90000;
         $product->image = "abc";
         $product->unit ='hộp';
-        $product->new= 1 ;
         $product->content='Cà phê pha phin Gu Thơm có vị chua thanh, những ai muốn cà phê có độ chua mạnh sẽ rất yêu thích dòng cà phê này. Cà phê pha phin Gu Thơm thích hợp với những tách cà phê đường, bạn sẽ vô cùng hài lòng cho tách cà phê buổi sáng.
         Cà phê pha phin Gu Thơm đặc biệt phù hợp cho những ai có cơ địa không thể sử dụng những sản phẩm có độ cafein cao nhưng vẫn thích uống cà phê, để đảm bảo sức hãy thử sử dụng dòng cà phê pha phin Gu Thơm.
         Greenfields Coffee đảm bảo cho chính khách hàng chúng tôi về chất lượng sản phẩm cũng như dịch vụ chúng tôi mang đến cho khách hàng. Sản phẩm lỗi do chính nhà sản xuất chúng tôi đổi trả dù bạn ở bất cứ đâu.

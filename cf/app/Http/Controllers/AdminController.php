@@ -11,6 +11,7 @@ use App\Bill;
 use App\BillDetail;
 use App\customer;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 
 class AdminController extends Controller
@@ -50,7 +51,9 @@ class AdminController extends Controller
         $customers = customer::where('name', 'like', '%'.$keyword.'%')->orWhere('address', 'like', '%'.$keyword.'%')->orWhere('phone_number', 'like', '%'.$keyword.'%')->get();
         $bills = Bill::all();
         return view('admin.search', compact('customers','bills'));
+
     }
+
     public function deleteProduct($id){
         Product::destroy($id);
             session::put('message', 'xóa sản phẩm thành công');
@@ -79,7 +82,7 @@ class AdminController extends Controller
         return view('admin.deletedBaiviet',compact('deleted'));
     }
     public function restoreBaiviet($id){
-        $restore = BaiViet::onlyTrashed()->where('id', '=', $id)->restore();
+        BaiViet::onlyTrashed()->where('id', '=', $id)->restore();
         return redirect()->route('admin.danhMucBaiviet');
 
     }
@@ -97,11 +100,35 @@ class AdminController extends Controller
     public function restoreQuanCfNgon($id){
         $restore = QuanCfNgon::onlyTrashed()->where('id', '=', $id)->restore();
         return redirect()->route('admin.danhMucQuanCf');
-
+    }
+    // thanh toán đơn hàng
+     public function paymenBill($id){
+        DB::table('bills')->where('id', $id)->update(['status' => 0]);
+        return redirect()->back();
     }
 
+    public function debit_order($id){
+        DB::table('bills')->where('id', $id)->update(['status' => 1]);
+        return redirect()->back();
+    }
 
+    // xóa và khôi phục đơn hàng
+    public function deleteDonHang($id){
+        Bill::destroy($id);
+        customer::destroy($id);
+        session::put('message', 'xóa đơn hàng thành công');
+        return redirect()->back();
+    }
 
+    public function deletedDonHang(){
+        $customers = customer::all();
+        $deleted = Bill::onlyTrashed()->get();
+        return view('admin.deletedDonHang',compact('deleted','customers'));
+    }
+    public function restoreDonHang($id){
+        $restore = Bill::onlyTrashed()->where('id', '=', $id)->restore();
+        return redirect()->route('admin.quanLyDonHang');
+    }
 
 
 }

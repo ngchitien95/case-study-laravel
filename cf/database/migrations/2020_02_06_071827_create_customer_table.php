@@ -20,7 +20,7 @@ class CreateCustomerTable extends Migration
             $table->string('address',200);
             $table->string('phone_number',20);
             $table->string('note',300);
-            $table->boolean('status')->default(1);
+
 
             $table->timestamps();
         });

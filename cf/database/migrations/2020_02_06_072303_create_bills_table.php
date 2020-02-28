@@ -19,9 +19,9 @@ class CreateBillsTable extends Migration
             $table->date('date_order');
             $table->string('total',200);
             $table->string('note',200);
-            $table->foreign('customer_id')->references('id')->on('customer');
-
-
+            $table->foreign('customer_id')->references('id')->on('customer')->onDelete('cascade');
+            $table->boolean('status')->default(1);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
