@@ -5,7 +5,7 @@
 
 <div class="slide-one-item home-slider owl-carousel">
 
-    <div class="site-blocks-cover inner-page overlay" style="background-image: url({{asset('neos/images/anhbia.jpg')}});" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="site-blocks-cover inner-page overlay" style="background-image: url({{asset('neos/images/anhbia.jpg')}});width:auto;height:300px" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-6 text-center" data-aos="fade">
@@ -15,7 +15,8 @@
       </div>
     </div>
 
-    <div class="site-blocks-cover inner-page overlay" style="background-image: url({{asset('neos/images/anhbia1.jpg')}});" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="site-blocks-cover inner-page overlay" style="background-image: url({{asset('neos/images/anhbia1.jpg')}});
+    width:auto;height:300px" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-7 text-center" data-aos="fade">
@@ -32,7 +33,7 @@ THIẾT BỊ HIỆN ĐẠI ĐÚNG CHUẨN</h1>
   <div class="site-section first-section">
     <div class="container">
       <div class="row mb-5">
-        <div class="col-md-12 text-center pt-5" data-aos="fade">
+        <div class="col-md-12 text-center pt-5 " data-aos="fade">
           <span class="caption d-block mb-2 font-secondary font-weight-bold ">NƠI KHỞI ĐẦU CHO NHỮNG THÀNH CÔNG</span>
           <h2 class="site-section-heading text-uppercase text-center font-secondary">UY TÍN TẠO NÊN THƯƠNG HIỆU</h2>
         </div>

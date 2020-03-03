@@ -3,7 +3,8 @@
         <div class="container">
           <div class="row align-items-center justify-content-center">
             <div class="col-md-6 text-center mb-9 mb-md-0">
-              <h4 class="text-uppercase text-white mb-4" data-aos="fade-up">GIAO HÀNG MIỄN PHÍ TOÀN QUỐC</H4>
+              <h4 class="text-uppercase text-white mb-4"
+              >GIAO HÀNG MIỄN PHÍ TOÀN QUỐC</H4>
               <h3 class="text-uppercase text-white mb-4">LIÊN HỆ: 0935 096 425</h3>
 
               {{-- <a href="#" class="btn btn-bg-primary font-secondary text-uppercase" data-aos="fade-up" data-aos-delay="100">Contact Us</a> --}}
@@ -81,7 +82,7 @@
             </div>
             </div> --}}
           </div>
-          <div class="row pt-3 mt-3 text-center">
+          <div class="pt-3 mt-3 text-center">
             <div class="col-md-12">
               <p>
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->

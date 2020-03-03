@@ -10,9 +10,22 @@
     </head>
     <body>
         <div class="container">
-            @if(Session::has('success'))
-            <p class="alert alert-info">{{ Session::get('success') }}</p>
+            @if(Session::has('successUpdate'))
+            <p class="alert alert-info">{{ Session::get('successUpdate') }}</p>
             @endif
+
+            @if(Session::has('successCreate'))
+            <p class="alert alert-info">{{ Session::get('successCreate') }}</p>
+            @endif
+
+            @if(Session::has('delBaiViet'))
+            <p class="alert alert-info">{{ Session::get('delBaiViet') }}</p>
+            @endif
+
+            @if(Session::has('restoreBaiviet'))
+            <p class="alert alert-info">{{ Session::get('restoreBaiviet') }}</p>
+            @endif
+
             <h2>Các bài viết</h2>
 
             {{-- <a href="javascript:void(0);" class="btn btn-primary" title="Add Product" onclick="product.openModel()">
@@ -35,8 +48,12 @@
                     <tr>
                         <td class="text-light bg-dark">{{$baiviet->title}}</td>
                         <td class="text-light bg-dark">
-                            <a href="{{ route('bai-viet.edit',$baiviet->id)}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                            <a href="{{ route('admin.deleteBaiviet',$baiviet->id)}}" class="btn btn-primary" ><i class="fa fa-trash"></i></a>
+                            <a onclick="return confirm('bạn có muốn chỉnh sửa bài viết không ?')" href="{{ route('bai-viet.edit',$baiviet->id)}} " class="btn btn-primary">
+                                <i class="fa fa-edit"></i></a>
+                            {{-- <a href="{{ route('bai-viet.edit',$baiviet->id)}}" class="btn btn-primary"><i class="fa fa-edit"></i></a> --}}
+                            <a onclick="return confirm('Bạn chắc chắn muốn xóa bài viết chứ ?? Bạn suy nghỉ kỉ chưa.??')" href="{{ route('admin.deleteBaiviet',$baiviet->id)}} " class="btn btn-primary">
+                                <i class="fa fa-trash"></i></a>
+                            {{-- <a href="{{ route('admin.deleteBaiviet',$baiviet->id)}}" class="btn btn-primary" ><i class="fa fa-trash"></i></a> --}}
 
                     </td>
                     </tr>
@@ -59,4 +76,7 @@
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
     <script src="scripts/product.js"></script>
 </html>
+<div class="float-right">
+    {{ $baiviets->links() }}
+</div>
 @endsection

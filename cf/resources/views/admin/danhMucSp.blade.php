@@ -12,6 +12,18 @@
             @if(Session::has('success'))
             <p class="alert alert-info">{{ Session::get('success') }}</p>
             @endif
+            @if(Session::has('successUpdate'))
+            <p class="alert alert-info">{{ Session::get('successUpdate') }}</p>
+            @endif
+            @if(Session::has('delProduct'))
+            <p class="alert alert-info">{{ Session::get('delProduct') }}</p>
+            @endif
+
+            @if(Session::has('restoreProduct'))
+            <p class="alert alert-info">{{ Session::get('restoreProduct') }}</p>
+            @endif
+
+
             <h2>Sản phẩm</h2>
 
             {{-- <a href="javascript:void(0);" class="btn btn-primary" title="Add Product" onclick="product.openModel()">
@@ -45,62 +57,7 @@
                 </table>
             </div>
         </div>
-        <!-- The Modal -->
-        {{-- @foreach ($collection as $item)
-        <div class="modal" id="addEditProduct">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <!-- Modal Header -->
 
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <form id="formProduct">
-                            <input hidden name="ProductId" id="ProductId" value=0>
-                            <div class="row form-group">
-                                <div class="col-4">
-                                    <label>Product Name</label>
-                                </div>
-                                <div class="col-8">
-                                    <input class="form-control" type="text" name="ProductName" id="ProductName" data-rule-required = "true" data-msg-required="Product name is required">
-                                </div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col-4">
-                                    <label>Price</label>
-                                </div>
-                                <div class="col-8">
-                                    <input class="form-control" type="text" name="Price" id="Price" data-rule-required = "true" data-msg-required="Price is required">
-                                </div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col-4">
-                                    <label>Description</label>
-                                </div>
-                                <div class="col-8">
-                                    <input class="form-control" type="text" name="Description" id="Description" data-rule-required = "true" data-msg-required="Description is required">
-                                </div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col-4">
-                                    <label>Manufactory</label>
-                                </div>
-                                <div class="col-8">
-                                    <input class="form-control" type="text" name="Manufactory" id="Manufactory" data-rule-required = "true" data-msg-required="Manufactory is required">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <a href="javascript:;" class="btn btn-primary" onclick="product.save()">Save</a>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @endforeach --}}
     </body>
 </noscript>
 <div style="text-align: center;"><div style="position:relative; top:0; margin-right:auto;margin-left:auto; z-index:99999">
@@ -114,4 +71,8 @@
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
     <script src="scripts/product.js"></script>
 </html>
+<div class="float-right">
+    {{ $cfs->links() }}
+</div>
+
 @endsection

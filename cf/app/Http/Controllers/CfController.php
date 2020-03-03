@@ -15,7 +15,7 @@ class CfController extends Controller
      */
     public function index()
     {
-        return View('cf.trangChuCf', ['cfs' => Product::all()]);
+        return View('cf.trangChuCf', ['cfs' => Product::paginate(6)]);
 
     }
 
@@ -118,7 +118,7 @@ class CfController extends Controller
 
 
         //dung session de dua ra thong bao
-        Session::flash('success', 'Cập nhật sản phẩm thành công');
+        Session::flash('successUpdate', 'Cập nhật sản phẩm thành công');
         //cap nhat xong quay ve trang cf
         return redirect()->route('admin.danhMucSp');
     }

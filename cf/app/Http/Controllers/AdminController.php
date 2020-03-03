@@ -26,13 +26,13 @@ class AdminController extends Controller
     }
 
     public function danhMucSp(){
-        return View('admin.danhMucSp', ['cfs' => Product::all()]);
+        return View('admin.danhMucSp', ['cfs' => Product::paginate(5)]);
     }
     public function danhMucQuanCf(){
-        return View('admin.danhMucQuanCf', ['quanCf' => QuanCfNgon::all()]);
+        return View('admin.danhMucQuanCf', ['quanCf' => QuanCfNgon::paginate(5)]);
     }
     public function danhMucBaiviet(){
-        return View('admin.danhMucBaiviet', ['baiviets' => baiviet::all()]);
+        return View('admin.danhMucBaiviet', ['baiviets' => baiviet::paginate(5)]);
     }
     public function quanLyDonHang(){
         return View('admin.quanLyDonHang', [ 'customers' => customer::all(),'bills' => Bill::all(), 'BillDetails' => BillDetail::all()]);
@@ -56,8 +56,8 @@ class AdminController extends Controller
 
     public function deleteProduct($id){
         Product::destroy($id);
-            session::put('message', 'xóa sản phẩm thành công');
-            return redirect()->route('admin.danhMucSp')->with(['flag' => 'success', 'message' => 'xóa sản phẩm thành công']);
+            session::flash('delProduct', 'xóa sản phẩm thành công');
+            return redirect()->back();
 
     }
 
@@ -68,12 +68,13 @@ class AdminController extends Controller
     }
     public function restoreProduct($id){
         $restore = Product::onlyTrashed()->where('id', '=', $id)->restore();
+        session::flash('restoreProduct', 'Khôi phục sản phẩm thành công');
         return redirect()->route('admin.danhMucSp');
 
     }
     public function deleteBaiviet($id){
         BaiViet::destroy($id);
-            session::put('message', 'xóa sản phẩm thành công');
+            session::flash('delBaiViet', 'xóa bài viết thành công');
             return redirect()->back();
     }
 
@@ -83,22 +84,28 @@ class AdminController extends Controller
     }
     public function restoreBaiviet($id){
         BaiViet::onlyTrashed()->where('id', '=', $id)->restore();
+        session::flash('restoreBaiviet', 'Khôi phục bài viết thành công');
+
         return redirect()->route('admin.danhMucBaiviet');
 
     }
 
     public function deleteQuanCfNgon($id){
-        QuanCfNgon::destroy($id);
-            session::put('message', 'xóa sản phẩm thành công');
+            QuanCfNgon::destroy($id);
+            session::flash('deleteQuanCfNgon', 'xóa quán cf ngon thành công');
+
             return redirect()->back();
     }
+
+
 
     public function deletedQuanCfNgon(){
         $deleted = QuanCfNgon::onlyTrashed()->get();
         return view('admin.deletedQuanCfNgon',compact('deleted'));
     }
     public function restoreQuanCfNgon($id){
-        $restore = QuanCfNgon::onlyTrashed()->where('id', '=', $id)->restore();
+        QuanCfNgon::onlyTrashed()->where('id', '=', $id)->restore();
+        session::flash('restoreQuanCfNgon', 'Khôi phục quán cf ngon thành công');
         return redirect()->route('admin.danhMucQuanCf');
     }
     // thanh toán đơn hàng
@@ -116,14 +123,14 @@ class AdminController extends Controller
     public function deleteDonHang($id){
         Bill::destroy($id);
         customer::destroy($id);
-        session::put('message', 'xóa đơn hàng thành công');
+        session::flash('message', 'xóa đơn hàng thành công');
         return redirect()->back();
     }
 
     public function deletedDonHang(){
-        $customers = customer::all();
-        $deleted = Bill::onlyTrashed()->get();
-        return view('admin.deletedDonHang',compact('deleted','customers'));
+        $customers = customer::onlyTrashed()->get();
+        $bills = Bill::onlyTrashed()->get();
+        return view('admin.deletedDonHang',compact('bills','customers'));
     }
     public function restoreDonHang($id){
         $restore = Bill::onlyTrashed()->where('id', '=', $id)->restore();

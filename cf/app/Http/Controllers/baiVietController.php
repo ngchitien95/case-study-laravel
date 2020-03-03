@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Session;
 
 class baiVietController extends Controller
 {
-    public function __construct()
-    {
-        return $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     return $this->middleware('auth');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -21,9 +21,11 @@ class baiVietController extends Controller
      */
     public function index()
     {
-        $baiviet = BaiViet::all();
+        $baiviet = BaiViet::paginate(3);
 
         return View('baiViet.trangChuBaiViet',compact('baiviet'));
+
+
     }
 
     /**
@@ -69,7 +71,7 @@ class baiVietController extends Controller
         $baiViet->save();
 
         //dung session de dua ra thong bao
-      Session::flash('success', 'Tạo mới bài viết thành công');
+      Session::flash('successCreate', 'Tạo mới bài viết thành công');
       //tao moi xong quay ve trang bai viet
       return redirect()->route('admin.danhMucBaiviet');
     }
@@ -132,7 +134,7 @@ class baiVietController extends Controller
 
 
         //dung session de dua ra thong bao
-        Session::flash('success', 'Cập nhật thành công');
+        Session::flash('successUpdate', 'Cập nhật bài viết thành công');
         //cap nhat xong quay ve trang bài viết
         return redirect()->route('admin.danhMucBaiviet');
     }

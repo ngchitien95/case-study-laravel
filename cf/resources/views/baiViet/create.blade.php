@@ -21,7 +21,7 @@
           </div>
           <div class="form-group">
              <label for="exampleInputEmail1">Nội Dung</label>
-             <textarea name="" id="" cols="30" rows="10" class="form-control" name="content" placeholder="Nhập Nội dung"></textarea>
+             <textarea  cols="30" rows="10" class="form-control" name="content" placeholder="Nhập Nội dung"></textarea>
           </div>
           <div class="form-group">
                 <label for="exampleFormControlFile1">Photo</label>

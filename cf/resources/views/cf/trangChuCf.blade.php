@@ -42,9 +42,12 @@
             </div>
 
             @endforeach
+
      </div>
     </div>
  </div>
 </div>
+{{ $cfs->links() }}
+
 
     @endsection

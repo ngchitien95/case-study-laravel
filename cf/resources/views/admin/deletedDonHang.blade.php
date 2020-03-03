@@ -10,10 +10,8 @@
     </head>
     <body>
         <div class="container">
-            @if(Session::has('success'))
-            <p class="alert alert-info">{{ Session::get('success') }}</p>
-            @endif
-            <h2>Liệt kê đơn hàng</h2>
+
+            <h2>Đơn hàng đả xóa</h2>
 
             {{-- <a href="javascript:void(0);" class="btn btn-primary" title="Add Product" onclick="product.openModel()">
                 <i class="fa fa-plus"></i>
@@ -45,8 +43,7 @@
                         <td class="text-light bg-dark">{{$cus->phone_number}}</td>
                         <td class="text-light bg-dark">{{$cus->note}}</td>
                         <td class="text-light bg-dark">{{$cus->created_at}}</td>
-                        @foreach ($cus->deleted as $bill)
-
+                        @foreach ($bills->where('customer_id', $cus->id) as $bill)
                         <td class="text-light bg-dark">{{$bill->total}}</td>
 
                         {{-- <td class="text-light bg-dark">{{$cus->status}}</td> --}}
@@ -57,13 +54,13 @@
                              if($bill->status==1)
                              {
                             ?>
-                            <a onclick="return confirm('Duyệt đơn hàng đơn hàng')" href="{{route('admin.paymenBill',$bill->id)}} " class="btn btn-primary">
+                            <a onclick="return confirm('Duyệt đơn hàng')" href="{{route('admin.paymenBill',$bill->id)}} " class="btn btn-primary">
                              <i>Chưa duyệt đơn</i></a>
 
                             <?php
                             }else{
                              ?>
-                            <a onclick="return confirm('Bỏ duyệt đơn hàng đơn hàng')" href="{{route('admin.debit_order',$bill->id)}}"class="btn btn-primary">
+                            <a onclick="return confirm('Bỏ duyệt đơn hàng')" href="{{route('admin.debit_order',$bill->id)}}"class="btn btn-danger">
                             <i>Đã duyệt đơn</i></a>
                              <?php
                             }

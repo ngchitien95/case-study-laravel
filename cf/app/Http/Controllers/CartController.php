@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Product;
-use Cart;
+// use Cart;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;

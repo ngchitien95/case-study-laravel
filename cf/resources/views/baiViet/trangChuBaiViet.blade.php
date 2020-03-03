@@ -69,5 +69,7 @@
         <!-- END SIDEBAR & CONTENT -->
     </div>
 </div>
+{{ $baiviet->links() }}
+
 
 @endsection

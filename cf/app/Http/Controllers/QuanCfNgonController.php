@@ -22,7 +22,8 @@ class QuanCfNgonController extends Controller
         // dd($new_productType);
 
         // return View('quanCfNgon.trangChu',compact('quancfngon'));
-        return View('quanCfNgon.trangChu', ['quancfngon' => QuanCfNgon::all()]);
+        return View('quanCfNgon.trangChu', ['quancfngon' => QuanCfNgon::paginate(3)]);
+
 
     }
 
@@ -58,9 +59,9 @@ class QuanCfNgonController extends Controller
         $quancfngon->save();
 
         //dung session de dua ra thong bao
-      Session::flash('success', 'Tạo mới quán cà phê thành công');
+      Session::flash('successCreate', 'Tạo mới quán cà phê thành công');
       //tao moi xong quay ve trang quán cf ngon
-      return redirect()->route('QuanCfNgon.create');
+      return redirect()->route('admin.danhMucQuanCf');
 
     }
 
@@ -115,7 +116,7 @@ class QuanCfNgonController extends Controller
 
 
         //dung session de dua ra thong bao
-        Session::flash('success', 'Cập nhật thành công');
+        Session::flash('successUpdate', 'Cập nhật quán cà phê ngon thành công');
         //cap nhat xong quay ve trang quán cf ngon
         return redirect()->route('admin.danhMucQuanCf');
     }

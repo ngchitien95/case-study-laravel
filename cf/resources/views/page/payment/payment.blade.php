@@ -165,8 +165,10 @@
                                 <li>thành tiền <span>{{Cart::subtotal().''.'vnđ' }}</span></li>
                             </ul>
                             <div class="form-actions fluid">
-                                <button class="btn btn-primary pull-right" type="submit" onclick="">Hoàn tất <i
+                                <button onclick="return confirm('Bạn có muốn xác nhận đơn hàng không ?')" class="btn btn-primary pull-right" type="submit" onclick="">Hoàn tất <i
                                         class="fa fa-check"></i></button>
+
+
                                 <a href="/show-cart" class="btn green pull-right margin-right-10">Giỏ hàng <i></i></a>
                             </div>
                         </form>

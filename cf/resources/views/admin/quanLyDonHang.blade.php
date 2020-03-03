@@ -37,35 +37,35 @@
                             <th>Manufactory</th> --}}
                         </tr>
                     </thead>
-                    <tbody class="bg-warning">
+                    <tbody class="text-light bg-dark">
                         @foreach ($customers as $cus)
 
                     <tr>
-                        <td class="text-light bg-dark">{{$cus->name}}</td>
-                        <td class="text-light bg-dark">{{$cus->phone_number}}</td>
-                        <td class="text-light bg-dark">{{$cus->note}}</td>
-                        <td class="text-light bg-dark">{{$cus->created_at}}</td>
+                        <td >{{$cus->name}}</td>
+                        <td>{{$cus->phone_number}}</td>
+                        <td>{{$cus->note}}</td>
+                        <td>{{$cus->created_at}}</td>
                         @foreach ($cus->bills as $bill)
 
-                        <td class="text-light bg-dark">{{$bill->total}}</td>
+                        <td>{{$bill->total}}</td>
                         @endforeach
 
-                        {{-- <td class="text-light bg-dark">{{$cus->status}}</td> --}}
+                        {{-- <td>{{$cus->status}}</td> --}}
                         {{-- cái nút trạng thái --}}
                         @foreach ($cus->bills as $bill)
-                        <td class="text-light bg-dark">
+                        <td>
                              <span class="text-ellipsis">
                             <?php
                              if($bill->status==1)
                              {
                             ?>
-                            <a onclick="return confirm('Duyệt đơn hàng đơn hàng')" href="{{route('admin.paymenBill',$bill->id)}} " class="btn btn-primary">
+                            <a onclick="return confirm('Duyệt đơn hàng')" href="{{route('admin.paymenBill',$bill->id)}} " class="btn btn-primary">
                              <i>Chưa duyệt đơn</i></a>
 
                             <?php
                             }else{
                              ?>
-                            <a onclick="return confirm('Bỏ duyệt đơn hàng đơn hàng')" href="{{route('admin.debit_order',$bill->id)}}"class="btn btn-primary">
+                            <a onclick="return confirm('Bỏ duyệt đơn hàng')" href="{{route('admin.debit_order',$bill->id)}}"class="btn btn-danger">
                             <i>Đã duyệt đơn</i></a>
                              <?php
                             }
@@ -75,10 +75,9 @@
                         @endforeach
 
 
-                         <td class="text-light bg-dark">
-                            <a href="{{ route('admin.showDonHang',$cus->id)}}" class="btn btn-primary"><i class="fa fa-search"></i></a>
-                            <a href="{{ route('admin.deleteDonHang',$cus->id)}}" class="btn btn-primary" ><i class="fa fa-trash"></i></a>
-
+                         <td>
+                            <a href="{{ route('admin.showDonHang',$cus->id)}}" class="btn btn-primary mt-2"><i class="fa fa-search"></i></a>
+                            <a href="{{ route('admin.deleteDonHang',$cus->id)}}" class="btn btn-primary mt-2" ><i class="fa fa-trash"></i></a>
 
                         </td>
 
