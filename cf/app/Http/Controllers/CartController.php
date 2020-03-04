@@ -8,7 +8,7 @@ use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
-session_start();
+
 class CartController extends Controller
 {
     public function save_cart(Request $request){
