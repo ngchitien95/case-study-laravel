@@ -134,12 +134,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
   });
 
-  Route::post('/save-cart','cartController@save_cart')->name('save_cart');
-  Route::post('/update-cart-quantity','cartController@update_cart_quantity');
+  Route::post('/save-cart','CartController@save_cart')->name('save_cart');
+  Route::post('/update-cart-quantity','CartController@update_cart_quantity');
 
-  Route::get('/show-cart','cartController@show_cart')->name('show-cart.cart');
-  Route::get('/show-cart/destroy','cartController@destroy')->name('cart.destroy');
-  Route::get('/delete-to-cart/{rowId}','cartController@delete_to_cart')->name('delete_to_cart.cart');
+  Route::get('/show-cart','CartController@show_cart')->name('show-cart.cart');
+  Route::get('/show-cart/destroy','CartController@destroy')->name('cart.destroy');
+  Route::get('/delete-to-cart/{rowId}','CartController@delete_to_cart')->name('delete_to_cart.cart');
 
 //   checkout
 Route::get('/payment','CheckOutController@payment');
