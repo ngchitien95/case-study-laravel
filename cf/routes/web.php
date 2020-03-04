@@ -58,11 +58,11 @@ Route::group(['prefix' => 'quan-cf-ngon'], function () {
 Route::group(['prefix' => 'bai-viet'], function () {
     Route::get('/','baiVietController@index')->name('bai-viet');
     Route::get('/{id}/show','baiVietController@show')->name('bai-viet.show');
-    Route::get('/create','baiVietController@create')->name('bai-viet.create')->middleware('auth');
-    Route::post('/create','baiVietController@store')->name('bai-viet.store')->middleware('auth');
-    Route::get('/{id}/edit','baiVietController@edit')->name('bai-viet.edit')->middleware('auth');
-    Route::post('/{id}/edit','baiVietController@update')->name('bai-viet.update')->middleware('auth');
-    Route::get('/{id}/destroy','baiVietController@destroy')->name('bai-viet.destroy')->middleware('auth');
+    Route::get('/create','baiVietController@create')->name('bai-viet.create')->middleware('admin');
+    Route::post('/create','baiVietController@store')->name('bai-viet.store')->middleware('admin');
+    Route::get('/{id}/edit','baiVietController@edit')->name('bai-viet.edit')->middleware('admin');
+    Route::post('/{id}/edit','baiVietController@update')->name('bai-viet.update')->middleware('admin');
+    Route::get('/{id}/destroy','baiVietController@destroy')->name('bai-viet.destroy')->middleware('admin');
   });
 
   Route::group(['prefix' => 'cf'], function () {
@@ -100,7 +100,7 @@ Route::group(['prefix' => 'home'], function () {
 //     return view('admin.home');
 // })->name('home.admin');
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/dasboard','AdminController@show_dashboard')->name('admin.show_dashboard');
     Route::get('/danh-muc-sp','AdminController@danhMucSp')->name('admin.danhMucSp');
     Route::get('/danh-muc-quan-cf','AdminController@danhMucQuanCf')->name('admin.danhMucQuanCf');

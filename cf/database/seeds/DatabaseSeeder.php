@@ -20,5 +20,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(BaiVietTableSeeder::class);
 
+        $this->call(UsersTableSeeder::class);
+
+
     }
 }

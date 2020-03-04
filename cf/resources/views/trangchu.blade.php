@@ -2,7 +2,6 @@
 @extends('welcome')
 @section('content')
 
-
 <div class="slide-one-item home-slider owl-carousel">
 
     <div class="site-blocks-cover inner-page overlay" style="background-image: url({{asset('neos/images/anhbia.jpg')}});width:auto;height:300px" data-aos="fade" data-stellar-background-ratio="0.5">

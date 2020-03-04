@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Session;
 
 class baiVietController extends Controller
 {
-    // public function __construct()
-    // {
-    //     return $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        return $this->middleware('auth')->except('index', 'show');
+    }
     /**
      * Display a listing of the resource.
      *
