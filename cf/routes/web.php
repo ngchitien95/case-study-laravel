@@ -142,5 +142,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
   Route::get('/delete-to-cart/{rowId}','CartController@delete_to_cart')->name('delete_to_cart.cart');
 
 //   checkout
-Route::get('/payment','CheckOutController@payment');
-Route::post('/payment-create','CustomerController@store')->name('store-CheckOut');
+Route::get('/payment','CheckOutController@payment')->middleware('auth');
+Route::post('/payment-create','CustomerController@store')->name('store-CheckOut')->middleware('auth');

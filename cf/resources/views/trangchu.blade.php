@@ -4,7 +4,7 @@
 
 <div class="slide-one-item home-slider owl-carousel">
 
-    <div class="site-blocks-cover inner-page overlay" style="background-image: url({{asset('neos/images/anhbia.jpg')}});width:auto;height:300px" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="site-blocks-cover inner-page overlay"  style="background-image: url({{asset('neos/images/anhbia.jpg')}});width:auto;height:300px" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-6 text-center" data-aos="fade">
@@ -29,34 +29,30 @@ THIẾT BỊ HIỆN ĐẠI ĐÚNG CHUẨN</h1>
 
   {{-- <div class="slant-1"></div> --}}
 
-  <div class="site-section first-section">
     <div class="container">
-      <div class="row mb-5">
+      <div class="row">
         <div class="col-md-12 text-center pt-5 " data-aos="fade">
           <span class="caption d-block mb-2 font-secondary font-weight-bold ">NƠI KHỞI ĐẦU CHO NHỮNG THÀNH CÔNG</span>
           <h2 class="site-section-heading text-uppercase text-center font-secondary">UY TÍN TẠO NÊN THƯƠNG HIỆU</h2>
         </div>
       </div>
     </div>
-    </div>
-  </div>
+
 
   @foreach ($new_productType1 as $type)
 
 <div class="site-half pt-5" >
-    <div class="img-bg-1" style="background-image:  url('{{asset('neos/images/truyenthong.jpg')}}');" ></div>
-  <div class="container">
-    <div class="row no-gutters align-items-stretch">
-
-      <div class="col-lg-5 ml-lg-auto py-5">
-        <span class="caption d-block mb-2 font-secondary font-weight-bold">{{ $type->name}}</span>
-        <p>{{$type->description}}</p>
-      <h2 class="site-section-heading text-uppercase font-secondary mb-5"> <a href="{{route('cf.cfType',$type->id)}}">Xem toàn bộ sản phẩm </a>  </h2>
-      </div>
-
-
+    <div class="img-bg-1" style="background-image:  url('{{asset('neos/images/truyenthong.jpg')}}');" >
     </div>
-  </div>
+         <div class="container">
+             <div class="row no-gutters align-items-stretch">
+               <div class="col-lg-5 ml-lg-auto py-5">
+                     <span class="caption d-block mb-2 font-secondary font-weight-bold">{{ $type->name}}</span>
+                     <p>{{$type->description}}</p>
+                    <h2 class="site-section-heading text-uppercase font-secondary mb-5"> <a href="{{route('cf.cfType',$type->id)}}">Xem toàn bộ sản phẩm </a>  </h2>
+                </div>
+            </div>
+        </div>
 </div>
 @endforeach
 <div class="site-section">
@@ -85,7 +81,7 @@ THIẾT BỊ HIỆN ĐẠI ĐÚNG CHUẨN</h1>
         </div>
       </div>
     </div>
-  </div>
+
 
 @foreach ($new_productType2 as $type)
 <div class="site-half block">
@@ -129,6 +125,6 @@ THIẾT BỊ HIỆN ĐẠI ĐÚNG CHUẨN</h1>
         </div>
       </div>
     </div>
-  </div>
+
 
   @endsection

@@ -136,6 +136,6 @@ class AdminController extends Controller
         $restore = Bill::onlyTrashed()->where('id', '=', $id)->restore();
         return redirect()->route('admin.quanLyDonHang');
     }
-
+    
 
 }

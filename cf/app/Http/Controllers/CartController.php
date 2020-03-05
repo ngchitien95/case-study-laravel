@@ -54,6 +54,10 @@ class CartController extends Controller
         Cart::update($rowId,$qty);
         return Redirect::to('/show-cart');
 
-}
+    }
+    //lấy thông tin từ users vào khách hàng
+
+    
+
 
 }

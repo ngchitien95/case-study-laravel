@@ -23,7 +23,7 @@
                                                     <i class="fa fa-user"></i>
                                                 </span>
                                                 <input name="name" type="text" class="form-control"
-                                                    placeholder="Họ tên khách hàng" value="">
+                                                    placeholder="Họ tên khách hàng" value="{{Auth::user()->name}}">
                                             </div>
                                         </div>
                                     </div>
@@ -37,7 +37,7 @@
                                                     <i class="fa fa-mobile"></i>
                                                 </span>
                                                 <input name="phone_number" type="tel" class="form-control"
-                                                    placeholder="Số điện thoại" value="">
+                                                    placeholder="Số điện thoại" value="{{Auth::user()->phone}}">
                                             </div>
                                         </div>
                                     </div>
@@ -51,7 +51,7 @@
                                                     <i class="fa fa-envelope"></i>
                                                 </span>
                                                 <input name="email" type="email" class="form-control"
-                                                    placeholder="Địa chỉ email" value="">
+                                                    placeholder="Địa chỉ email" value="{{Auth::user()->email}}">
                                             </div>
                                         </div>
                                     </div>
