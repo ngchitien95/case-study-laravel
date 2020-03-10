@@ -102,10 +102,15 @@
                                     </button>
 
                                     @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        <a class="btn btn-success" href="{{ route('password.request') }}">
                                             {{ __('Quên mật khẩu?') }}
                                         </a>
                                     @endif
+                                    <br>
+                                    @if (Route::has('register'))
+                                        <a class="btn btn-info" href="{{ route('register') }}">{{ __('Đăng kí') }}</a>
+
+                                @endif
                                 </div>
                             </div>
                         </form>

@@ -103,7 +103,7 @@
                         <li>thành tiền <span>{{Cart::subtotal().''.'vnđ' }}</span></li>
                     </ul>
                         {{-- <a class="btn btn-default update" href="">Update</a> --}}
-                        <a class="btn btn-default check_out" href="{{URL::to('/payment')}}">Thanh toán</a>
+                        <a class="btn btn-danger" href="{{URL::to('/payment')}}">Thanh toán</a>
                 </div>
             </div>
         </div>

@@ -25,6 +25,7 @@
 
     <link rel="stylesheet" href="{{asset('neos/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/myCss.css')}}">
+
   </head>
   <body>
 @include('header')
@@ -44,7 +45,5 @@
   <script src="{{asset('neos/js/aos.js')}}"></script>
 
   <script src="{{asset('neos/js/main.js')}}"></script>
-
-
   </body>
 </html>
