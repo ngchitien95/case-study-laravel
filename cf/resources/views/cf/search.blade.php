@@ -1,6 +1,5 @@
-@extends('welcome')
+@extends('layouts.app')
 @section('content')
-
 {{-- <div class="main"> --}}
 <div class="container pt-5">
     <div class="row margin-bottom-40">

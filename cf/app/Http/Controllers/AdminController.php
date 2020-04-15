@@ -78,9 +78,14 @@ class AdminController extends Controller
             return redirect()->back();
     }
 
-    public function deletedBaiviet(){
+    // public function deletedPost(){
+    //     $deleted = BaiViet::onlyTrashed()->get();
+    //     return view('admin.deletedBaiviet',compact('deleted'));
+    // }
+
+    public function deletedPost(){
         $deleted = BaiViet::onlyTrashed()->get();
-        return view('admin.deletedBaiviet',compact('deleted'));
+        return view('admin.deletedBaiviet', compact('deleted'));
     }
     public function restoreBaiviet($id){
         BaiViet::onlyTrashed()->where('id', '=', $id)->restore();
@@ -136,6 +141,6 @@ class AdminController extends Controller
         $restore = Bill::onlyTrashed()->where('id', '=', $id)->restore();
         return redirect()->route('admin.quanLyDonHang');
     }
-    
+
 
 }

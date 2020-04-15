@@ -1,6 +1,6 @@
-@extends('welcome')
+@extends('layouts.app')
 @section('content')
-
+<br>
 <div class="main">
     <div class="container">
         <!-- BEGIN SIDEBAR & CONTENT -->
@@ -24,49 +24,23 @@
                                                 {{-- <li><i class="fa fa-eye"></i> 18</li> --}}
                                             </ul>
                                             <p>{{$post->describe}}</p>
-                                            <a href={{ route('bai-viet.show', $post->id) }} class="more">Đọc tiếp <i class="icon-angle-right"></i></a>
+                                            <a class="btn btn-success" href={{ route('bai-viet.show', $post->id) }} class="more">Đọc tiếp</a>
                                         </div>
                                     </div>
                                     <hr class="blog-post-sep">
                             @endforeach
 
-                            {{-- <ul class="pagination">
-                                                                <li class="active"><a href="/blog/1">1</a></li>
-                                    <li><a href="/blog/2">2</a></li>
-                                    <li><a href="/blog/3">3</a></li>
-                                                                    <li><a href="/blog/2">Sau</a></li>
-                            </ul> --}}
-
-                            {{-- <div class="row"></div> --}}
                         </div>
-                        <!-- END LEFT SIDEBAR -->
-                        <!-- BEGIN RIGHT SIDEBAR -->
-                        {{-- <div class="col-md-4 col-sm-4 blog-sidebar">
-                            <!-- CATEGORIES START -->
 
-                            <!-- CATEGORIES END -->
-                            <!-- BEGIN RECENT NEWS -->
-                            <h2>Tin mới</h2>
-                            <div class="recent-news margin-bottom-10">
-                                    <p>Không có bài viết</p>
 
-                            </div>
-                            <!-- END RECENT NEWS -->
-                            <hr />
-                            <!-- BEGIN MOST READ -->
-                            <h2>XEM NHIỀU NHẤT</h2>
-                            <div class="recent-news margin-bottom-10">
-                                    <p>Không có bài viết</p>
-                            </div>
-                            <!-- END MOST READ -->
-                        </div> --}}
-                        <!-- END RIGHT SIDEBAR -->
+
+
+
+
                     </div>
                 </div>
             </div>
-            <!-- END CONTENT -->
         </div>
-        <!-- END SIDEBAR & CONTENT -->
     </div>
 </div>
 {{ $baiviet->links() }}

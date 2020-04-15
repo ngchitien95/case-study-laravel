@@ -7,7 +7,7 @@
 
 <div class="col-12 col-md-12">
     <div class="row">
-       <div class="col-12"><h1>CHỈNH SỬA QUÁN CÀ PHÊ    </h1></div>
+       <div class="col-12"><h1>CHỈNH SỬA QUÁN CÀ PHÊ</h1></div>
        <div class="col-12">
           <form method="post" enctype="multipart/form-data" action="{{ route('QuanCfNgon.update', $quancfngon->id) }}">
           @csrf
@@ -18,10 +18,17 @@
           <div class="form-group">
              <label>Miêu tả</label>
              <input type="text" class="form-control" name="describe" value="{{ $quancfngon->describe }}" required></div>
-          <div class="form-group">
+          {{-- <div class="form-group">
              <label>Nội dung</label>
              <input type="text" class="form-control" name="content" value="{{ $quancfngon->content }}" required>
-          </div>
+          </div> --}}
+          <div class="form-group">
+            <label for="exampleInputEmail1">Nội Dung</label>
+            {{-- <input type="text" class="form-control" name="content" placeholder="Nhập Nội dung" required> --}}
+            {{-- <textarea name="content" id="editor" {{ $quancfngon->content }} class="form-control"></textarea> --}}
+            <textarea name="content" id="editor" class="form-control"> {{ $quancfngon->content }} </textarea>
+
+        </div>
 
           <div class="form-group">
             <label for="exampleFormControlFile1">Photo</label>
@@ -35,5 +42,11 @@
        </div>
       </div>
  </div>
+ <script src="//cdn.ckeditor.com/4.13.1/full/ckeditor.js"></script>
+ <script>
+     CKEDITOR.replace( 'editor' );
+     CKEDITOR.config.entities = false;
+     CKEDITOR.config.height = 500;
+ </script>
 
  @endsection

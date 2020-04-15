@@ -1,139 +1,133 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
+    <title>Login</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-        <title>Neos &mdash; Website Template by Colorlib</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
-        <link href="https://fonts.googleapis.com/css?family=Oswald:400,700|Work+Sans:300,400,700" rel="stylesheet">
-        <link rel="stylesheet" href="fonts/icomoon/style.css">
-
-      <link rel="stylesheet" href="{{asset('/neos/css/bootstrap.min.css')}}">
-        <link rel="stylesheet" href="{{asset('/neos/css/magnific-popup.css')}}">
-        <link rel="stylesheet" href="{{asset('/neos/css/jquery-ui.css')}}">
-        <link rel="stylesheet" href="{{asset('/neos/css/owl.carousel.min.css')}}">
-        <link rel="stylesheet" href="{{asset('/neos/css/owl.theme.default.min.css')}}">
-        <link rel="stylesheet" href="{{asset('neos/css/bootstrap-datepicker.css')}}">
-        <link rel="stylesheet" href="{{asset('neos/css/animate.css')}}">
-
-        <link rel="stylesheet" href="{{asset('neos/fonts/flaticon/font/flaticon.css')}}">
-
-        <link rel="stylesheet" href="{{asset('neos/css/aos.css')}}">
-
-        <link rel="stylesheet" href="{{asset('neos/css/style.css')}}">
-
-
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="Login_v9/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Login_v9/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Login_v9/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Login_v9/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Login_v9/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Login_v9/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Login_v9/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Login_v9/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Login_v9/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Login_v9/css/util.css">
+    <link rel="stylesheet" type="text/css" href="Login_v9/css/main.css">
+    <!--===============================================================================================-->
 </head>
 
 <body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Đăng nhập') }}</div>
 
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
 
-                            <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+    <div class="container-login100" style="background-image: url('Login_v9/images/bg-01.jpg');">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
+            <form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
+                @csrf
+                <span class="login100-form-title p-b-37">
+                    Sign In
+                </span>
 
-                                <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-md-6 offset-md-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                        <label class="form-check-label" for="remember">
-                                            {{ __('Remember Me') }}
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group row mb-0">
-                                <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Đăng nhập') }}
-                                    </button>
-
-                                    @if (Route::has('password.request'))
-                                        <a class="btn btn-success" href="{{ route('password.request') }}">
-                                            {{ __('Quên mật khẩu?') }}
-                                        </a>
-                                    @endif
-                                    <br>
-                                    @if (Route::has('register'))
-                                        <a class="btn btn-info" href="{{ route('register') }}">{{ __('Đăng kí') }}</a>
-
-                                @endif
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                <div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
+                    <input type="email" class="input100 @error('email') is-invalid @enderror" name="email"
+                        value="{{ old('email') }}" required autocomplete="email" autofocus
+                        placeholder="username or email">
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                    <span class="focus-input100"></span>
                 </div>
-            </div>
+
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter password">
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                        name="password" required autocomplete="current-password">
+                    @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn" type="submit">
+                        Sign In
+                    </button>
+
+                    @if (Route::has('password.request'))
+                    <a class="btn btn-success" href="{{ route('password.request') }}">
+                        {{ __('Quên mật khẩu?') }}
+                    </a>
+                    @endif
+                    <br>
+                    @if (Route::has('register'))
+                    <a class="btn btn-info" href="{{ route('register') }}">{{ __('Đăng kí') }}</a>
+
+                    @endif
+                </div>
+
+                <div class="text-center p-t-57 p-b-20">
+                    <span class="txt1">
+                        Or login with
+                    </span>
+                </div>
+
+                <div class="flex-c p-b-112">
+                    <a href="#" class="login100-social-item">
+                        <i class="fa fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#" class="login100-social-item">
+                        <img src="Login_v9/images/icons/icon-google.png" alt="GOOGLE">
+                    </a>
+                </div>
+
+                <div class="text-center">
+                    <a href="#" class="txt2 hov1">
+                        Sign Up
+                    </a>
+                </div>
+            </form>
+
+
         </div>
     </div>
 
 
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script src="Login_v9/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="Login_v9/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="Login_v9/vendor/bootstrap/js/popper.js"></script>
+    <script src="Login_v9/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="Login_v9/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="Login_v9/vendor/daterangepicker/moment.min.js"></script>
+    <script src="Login_v9/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="Login_v9/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="Login_v9/js/main.js"></script>
+
 </body>
-<script src="{{asset('neos/js/jquery-3.3.1.min.js')}}"></script>
-  <script src="{{asset('neos/js/jquery-migrate-3.0.1.min.js')}}"></script>
-  <script src="{{asset('neos/js/jquery-ui.js')}}"></script>
-  <script src="{{asset('neos/js/popper.min.js')}}"></script>
-  <script src="{{asset('neos/js/bootstrap.min.js')}}"></script>
-  <script src="{{asset('neos/js/owl.carousel.min.js')}}"></script>
-  <script src="{{asset('neos/js/jquery.stellar.min.js')}}"></script>
-
-  <script src="{{asset('neos/js/jquery.waypoints.min.js')}}"></script>
-  <script src="{{asset('neos/js/jquery.animateNumber.min.js')}}"></script>
-  <script src="{{asset('neos/js/aos.js')}}"></script>
-
-  <script src="{{asset('neos/js/main.js')}}"></script>
 
 </html>

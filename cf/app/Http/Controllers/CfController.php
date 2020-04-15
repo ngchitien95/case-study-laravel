@@ -38,7 +38,7 @@ class CfController extends Controller
      */
     public function store(Request $request)
     {
-        // $this->validateAttribute();
+        $this->validateAttribute();
         // $atri = $request->all();
         // dd($atri);
         $image = request('image');
@@ -96,9 +96,18 @@ class CfController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validateAttribute();
+        $val = request()->validate([
+            'name' => 'required|min:5',
+            'content' => 'required',
+            'description' => 'required',
+            'promotion_price' => 'required',
+            'unit' => 'required',
+            'image'  => 'mimes:jpeg,jpg,png,gif|max:10000'
+        ]);
+
 
         $cf = Product::findOrFail($id);
+        $cf->update($val);
         // $cf->update($this->validateAttribute());
         $cf->name = $request->input('name');
         $cf->content = $request->input('content');
@@ -113,7 +122,9 @@ class CfController extends Controller
             $image = base64_encode(file_get_contents($file));
             $image = 'data:image/png;base64,' . $image;
             $cf->image = $image;
-        };
+        }
+            $cf->image = $cf->image;
+
         $cf->save();
 
 
@@ -143,13 +154,14 @@ class CfController extends Controller
 
     public function validateAttribute(){
         return request()->validate([
-            'name' => 'required',
+            'name' => 'required|min:5',
             'content' => 'required',
             'description' => 'required',
             'promotion_price' => 'required',
             'unit' => 'required',
-            'type' => 'required'
-        ]);
+            'image'  => 'mimes:jpeg,jpg,png,gif|required|max:10000'
+        ]
+    );
     }
 
     public function search(){

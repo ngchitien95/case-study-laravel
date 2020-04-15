@@ -1,13 +1,13 @@
-@extends('welcome')
+@extends('layouts.app')
 @section('content')
-
+<br>
 <div class="main">
     <div class="container">
         <!-- BEGIN SIDEBAR & CONTENT -->
         <div class="row margin-bottom-40">
             <!-- BEGIN CONTENT -->
             <div class="col-md-12 col-sm-12">
-                <h1>Thông tin khách hàng</h1>
+                <h1 style="color:red">Thông tin khách hàng</h1>
                 <div class="goods-page">
                     <div class="goods-data">
                         <form id="customer_info" class="form-horizontal" role="form"
@@ -95,7 +95,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <h1>Kiểm tra sản phẩm</h1>
+                            <h1 style="color:red">Kiểm tra sản phẩm</h1>
                             <table class="table table-condensed">
                                 <thead>
                                     <tr class="cart_menu">
@@ -118,7 +118,7 @@
                                             <h4><a href="">{{$v_content->name}}</a></h4>
                                             <input type="hidden" name="name_product[]" value="{{$v_content->name}}">
 
-                                            <p>Web ID: 1089772</p>
+                                            {{-- <p>Web ID: 1089772</p> --}}
                                             <input type="hidden" name="product_id[]" value="{{$v_content->id}}">
 
                                         </td>
@@ -155,7 +155,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            <ul>
+                            <ul style="margin-left: 800px " ;>
                                 <li>Tổng <span>{{Cart::subtotal().''.'vnđ' }}</span></li>
                                 <input type="hidden" name="subtotal" value="{{Cart::subtotal()}}">
 
@@ -164,12 +164,13 @@
                                 <li>Phí vận chuyển <span>Free</span></li>
                                 <li>thành tiền <span>{{Cart::subtotal().''.'vnđ' }}</span></li>
                             </ul>
+                            <br>
                             <div class="form-actions fluid">
                                 <button onclick="return confirm('Bạn có muốn xác nhận đơn hàng không ?')" class="btn btn-primary pull-right" type="submit" onclick="">Hoàn tất <i
                                         class="fa fa-check"></i></button>
 
 
-                                <a href="/show-cart" class="btn green pull-right margin-right-10">Giỏ hàng <i></i></a>
+                                <a href="/show-cart" class="btn btn-danger pull-right">Giỏ hàng <i></i></a>
                             </div>
                         </form>
 
@@ -181,6 +182,6 @@
         <!-- END SIDEBAR & CONTENT -->
     </div>
 </div>
-
+<br>
 
 @endsection

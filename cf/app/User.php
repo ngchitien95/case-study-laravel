@@ -36,5 +36,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function comment()
+    {
+        return $this->hasMany('App\CommentBaiviet','id_user','id');
+    }
+
 
 }

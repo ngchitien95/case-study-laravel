@@ -5,155 +5,174 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
+
 <head>
-<title>trang admin</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+    <title>trang admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- bootstrap-css -->
-<link rel="stylesheet" href="/web/css/bootstrap.min.css" >
-<!-- //bootstrap-css -->
-<!-- Custom CSS -->
-<link href="/web/css/style.css" rel='stylesheet' type='text/css' />
-<link href="/web/css/style-responsive.css" rel="stylesheet"/>
-<!-- font CSS -->
-<link href='/web///fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-<!-- font-awesome icons -->
-<link rel="stylesheet" href="/web/css/font.css" type="text/css"/>
-<link href="/web/css/font-awesome.css" rel="stylesheet">
-<link rel="stylesheet" href="/web/css/morris.css" type="text/css"/>
-<!-- calendar -->
-<link rel="stylesheet" href="/web/css/monthly.css">
-<!-- //calendar -->
-<!-- //font-awesome icons -->
-<script src="/web/js/jquery2.0.3.min.js"></script>
-<script src="/web/js/raphael-min.js"></script>
-<script src="/web/js/morris.js"></script>
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+    </script>
+    <!-- bootstrap-css -->
+    <link rel="stylesheet" href="/web/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+    <!-- //bootstrap-css -->
+    <!-- Custom CSS -->
+    <link href="/web/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="/web/css/style-responsive.css" rel="stylesheet" />
+    <!-- font CSS -->
+    <link
+        href='/web///fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic'
+        rel='stylesheet' type='text/css'>
+    <!-- font-awesome icons -->
+    <link rel="stylesheet" href="/web/css/font.css" type="text/css" />
+    <link href="/web/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="/web/css/morris.css" type="text/css" />
+    <!-- calendar -->
+    <link rel="stylesheet" href="/web/css/monthly.css">
+    <!-- //calendar -->
+    <!-- //font-awesome icons -->
+    <script src="/web/js/jquery2.0.3.min.js"></script>
+    <script src="/web/js/raphael-min.js"></script>
+    <script src="/web/js/morris.js"></script>
 
 
 </head>
+
 <body>
-<section id="container">
-<!--header start-->
-<header class="header fixed-top clearfix">
-<!--logo start-->
-<div class="brand">
-<a href= {{route('home') }} class="logo">
-        Quản Lý
-    </a>
-    <div class="sidebar-toggle-box">
-        <div class="fa fa-bars"></div>
-    </div>
-</div>
-<!--logo end-->
-
-<div class="top-nav clearfix">
-    <!--search & user info start-->
-    <ul class="nav pull-right top-menu">
-        <li>
-            <div class="beta-comp">
-                <h3>Nice to meet you: {{Auth::user()->name}}</h3>
+    <section id="container">
+        @include('message')
+        <!--header start-->
+        <header class="header fixed-top clearfix" style="background-color: #D8F781;">
+            <!--logo start-->
+            <div class="brand" style="background-color: #FF0040;">
+                <a href={{route('home') }} class="logo">
+                    Quản Lý
+                </a>
+                <div class="sidebar-toggle-box">
+                    <div class="fa fa-bars"></div>
+                </div>
             </div>
+            <!--logo end-->
 
-        </li>
-        <li>
-            <div class="beta-comp">
-                <form role="search" method="get" id="searchform" action="{{route('admin.search')}}">
-                    <input type="text" value="" name="key" id="s" placeholder="Nhập từ khóa..." />
-                    <button class="fa fa-search" type="submit" id="searchsubmit"></button>
-                </form>
-            </div>
-            {{-- <input type="text" class="form-control search" placeholder=" Search"> --}}
-        </li>
-        <!-- user login dropdown start-->
-        {{-- <li class="dropdown">
+            <div class="top-nav clearfix">
+                <!--search & user info start-->
+                <ul class="nav pull-right top-menu">
+                    <li>
+                        <div class="beta-comp">
+                            <h3>Nice to meet you: {{Auth::user()->name}}</h3>
+                        </div>
+
+                    </li>
+                    <li>
+                        <div class="beta-comp">
+                            <form role="search" method="get" id="searchform" action="{{route('admin.search')}}">
+                                <input type="text" value="" name="key" id="s" placeholder="Nhập từ khóa..." />
+                                <button class="fa fa-search" type="submit" id="searchsubmit"></button>
+                            </form>
+                        </div>
+                        {{-- <input type="text" class="form-control search" placeholder=" Search"> --}}
+                    </li>
+                    <!-- user login dropdown start-->
+                    {{-- <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <img alt="" src="/web/images/2.png">
             <span class="username">{{Auth::user()->name}}</span>
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu extended logout">
-                <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                <li><a href="#"><i class="fa fa-cog"></i> Cài đặt</a></li>
-                <li><a href="login.html"><i class="fa fa-key"></i> Đăng xuất</a></li>
-            </ul>
-        </li> --}}
-        <!-- user login dropdown end -->
-
-    </ul>
-    <!--search & user info end-->
-</div>
-</header>
-<!--header end-->
-<!--sidebar start-->
-<aside>
-    <div id="sidebar" class="nav-collapse">
-        <!-- sidebar menu start-->
-        <div class="leftside-navigation">
-            <ul class="sidebar-menu" id="nav-accordion">
-                <li>
-                <a class="active" href="{{URL::to('/')}}">
-                        <i class="fa fa-dashboard"></i>
-                        <span>Tổng quan</span>
+                    <b class="caret"></b>
                     </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-book"></i>
-                        <span>Danh mục sản phẩm</span>
-                    </a>
-                    <ul class="sub">
-						<li><a href="{{ route('cf.create') }}">Thêm sản phẩm</a></li>
-                        <li><a href="{{ route('admin.danhMucSp') }}">Liệt kê các sản phẩm</a></li>
-						<li><a href="{{ route('admin.deleted') }}">Các sản phẩm đã xóa</a></li>
-
+                    <ul class="dropdown-menu extended logout">
+                        <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
+                        <li><a href="#"><i class="fa fa-cog"></i> Cài đặt</a></li>
+                        <li><a href="login.html"><i class="fa fa-key"></i> Đăng xuất</a></li>
                     </ul>
-                </li>
+                    </li> --}}
+                    <!-- user login dropdown end -->
 
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-book"></i>
-                        <span>Danh mục quán cf ngon ở Huế</span>
-                    </a>
-                    <ul class="sub">
-						<li><a href="{{ route('QuanCfNgon.create') }}">Thêm quán cà phê</a></li>
-                        <li><a href="{{ route('admin.danhMucQuanCf') }}">Liệt kê các quán cà phê</a></li>
-                        <li><a href="{{ route('admin.deletedQuanCfNgon') }}">Các quán đã xóa</a></li>
+                </ul>
+                <!--search & user info end-->
+            </div>
+        </header>
+        <!--header end-->
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse">
+                <!-- sidebar menu start-->
+                <div class="leftside-navigation">
+                    <ul class="sidebar-menu" id="nav-accordion">
+                        <li>
+                            <a class="active" href="{{URL::to('/')}}">
+                                <i class="fa fa-dashboard"></i>
+                                <span>Tổng quan</span>
+                            </a>
+                        </li>
 
-                        {{-- <li><a href="grids.html">Grids</a></li> --}}
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-book"></i>
+                                <span>Danh mục sản phẩm</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="{{ route('cf.create') }}">Thêm sản phẩm</a></li>
+                                <li><a href="{{ route('admin.danhMucSp') }}">Liệt kê các sản phẩm</a></li>
+                                <li><a href="{{ route('admin.deleted') }}">Các sản phẩm đã xóa</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-book"></i>
+                                <span>Danh mục quán cf ngon ở Huế</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="{{ route('QuanCfNgon.create') }}">Thêm quán cà phê</a></li>
+                                <li><a href="{{ route('admin.danhMucQuanCf') }}">Liệt kê các quán cà phê</a></li>
+                                <li><a href="{{ route('admin.deletedQuanCfNgon') }}">Các quán đã xóa</a></li>
+
+                                {{-- <li><a href="grids.html">Grids</a></li> --}}
+                            </ul>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-book"></i>
+                                <span>Danh mục Bài Viết</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="{{ route('bai-viet.create') }}">Thêm bài viết</a></li>
+                                <li><a href="{{ route('admin.danhMucBaiviet') }}">Liệt kê các bài viết</a></li>
+                                <li><a href="{{route('admin.deletedPost')}}">Các bài viết đã xóa</a></li>
+
+
+                                {{-- <li><a href="grids.html">Grids</a></li> --}}
+                            </ul>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-book"></i>
+                                <span>Quản lý đơn hàng</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="{{ route('admin.quanLyDonHang') }}">Danh sách đặt hàng</a></li>
+                                <li><a href="{{ route('admin.deletedDonHang') }}">Đơn hàng đã xóa</a></li>
+                                {{-- <li><a href="grids.html">Grids</a></li> --}}
+                            </ul>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-book"></i>
+                                <span>Quản lý bình luận</span>
+                            </a>
+                            <ul class="sub">
+						<li><a href="{{ route('admin.quanLyComment') }}">Danh sách bình luận</a></li>
+                        {{-- <li><a href="{{ route('admin.deletedDonHang') }}">Đơn hàng đã xóa</a></li> --}}
                     </ul>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-book"></i>
-                        <span>Danh mục Bài Viết</span>
-                    </a>
-                    <ul class="sub">
-						<li><a href="{{ route('bai-viet.create') }}">Thêm bài viết</a></li>
-                        <li><a href="{{ route('admin.danhMucBaiviet') }}">Liệt kê các bài viết</a></li>
-                        <li><a href="{{ route('admin.deletedBaiviet') }}">Các bài viết đã xóa</a></li>
-
-
-                        {{-- <li><a href="grids.html">Grids</a></li> --}}
-                    </ul>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-book"></i>
-                        <span>Quản lý đơn hàng</span>
-                    </a>
-                    <ul class="sub">
-						<li><a href="{{ route('admin.quanLyDonHang') }}">Danh sách đặt hàng</a></li>
-						<li><a href="{{ route('admin.deletedDonHang') }}">Đơn hàng đã xóa</a></li>
-                        {{-- <li><a href="grids.html">Grids</a></li> --}}
-                    </ul>
-                </li>
-                {{-- <li>
+                    </li>
+                    {{-- <li>
                     <a href="fontawesome.html">
                         <i class="fa fa-bullhorn"></i>
                         <span>Font awesome </span>
@@ -227,28 +246,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Login Page</span>
                     </a>
                 </li> --}}
-            </ul>            </div>
-        <!-- sidebar menu end-->
-    </div>
-</aside>
-<!--sidebar end-->
-<!--main content start-->
-<section id="main-content">
-	<section class="wrapper">
-		<!-- //market-->
-@yield('admin_content')
+                    </ul>
+                </div>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <!-- //market-->
+                @yield('admin_content')
 
-</section>
- <!-- footer -->
-		  <div class="footer">
-			<div class="wthree-copyright">
-			  {{-- <p>© 2017 Visitors. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p> --}}
-			</div>
-		  </div>
-  <!-- / footer -->
-</section>
-<!--main content end-->
-</section>
+            </section>
+            <!-- footer -->
+            <div class="footer">
+                <div class="wthree-copyright">
+                    {{-- <p>© 2017 Visitors. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p> --}}
+                </div>
+            </div>
+            <!-- / footer -->
+        </section>
+        <!--main content end-->
+    </section>
     <script src="/web/js/bootstrap.js"></script>
     <script src="/web/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="/web/js/scripts.js"></script>
@@ -256,9 +276,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="/web/js/jquery.nicescroll.js"></script>
     <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
     <script src="/web/js/jquery.scrollTo.js"></script>
-<!-- morris JavaScript -->
-<script>
-	$(document).ready(function() {
+    <!-- morris JavaScript -->
+    <script>
+        $(document).ready(function() {
 		//BOX BUTTON SHOW AND CLOSE
 	   jQuery('.small-graph-box').hover(function() {
 		  jQuery(this).find('.box-button').fadeIn('fast');
@@ -311,11 +331,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 	});
-	</script>
-<!-- calendar -->
-	<script type="text/javascript" src="/js/monthly.js"></script>
-	<script type="text/javascript">
-		$(window).load( function() {
+    </script>
+    <!-- calendar -->
+    <script type="text/javascript" src="/js/monthly.js"></script>
+    <script type="text/javascript">
+        $(window).load( function() {
 
 			$('#mycalendar').monthly({
 				mode: 'event',
@@ -342,7 +362,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		}
 
 		});
-	</script>
-	<!-- //calendar -->
+    </script>
+    <!-- //calendar -->
 </body>
+
 </html>

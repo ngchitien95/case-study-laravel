@@ -22,7 +22,7 @@ class QuanCfNgonController extends Controller
         // dd($new_productType);
 
         // return View('quanCfNgon.trangChu',compact('quancfngon'));
-        return View('quanCfNgon.trangChu', ['quancfngon' => QuanCfNgon::paginate(3)]);
+        return View('quanCfNgon.trangChu', ['quancfngon' => QuanCfNgon::latest()->paginate(2)]);
 
 
     }

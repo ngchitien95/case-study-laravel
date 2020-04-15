@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Bill;
 use App\BillDetail;
 use App\customer;
+use App\Mail\ShoppinggMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Mail;
 
 class CustomerController extends Controller
 {
@@ -39,6 +41,7 @@ class CustomerController extends Controller
             $bill_detail->unit_price = $value['price'];
             $bill_detail->save();
         }
+        Mail::to($cus->email)->send(new ShoppinggMail($bill, $bill_detail));
         Session::forget('cart');
       return redirect()->route('trang-chu');
     }

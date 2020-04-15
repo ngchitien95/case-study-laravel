@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/lien-he',function(){
     return view('lienHe.lien-he');})->name('lien-he');
 
+Route::post('/comment/{id}','commentController@store')->name('comment.store');
 
 
 //tao group route
@@ -84,12 +85,7 @@ Route::group(['prefix' => 'bai-viet'], function () {
 Auth::routes();
 Route::group(['prefix' => 'home'], function () {
     Route::get('/','HomeController@index')->name('home');
-    // Route::get('/{id}/show','CfController@show')->name('cf.show');
-    // Route::get('/create','CfController@create')->name('cf.create');
-    // Route::post('/create','CfController@store')->name('cf.store');
-    // Route::get('/{id}/edit','CfController@edit')->name('cf.edit');
-    // Route::post('/{id}/edit','CfController@update')->name('cf.update');
-    // Route::get('/{id}/destroy','CfController@destroy')->name('cf.destroy');
+
   });
 
 // Route::get('/home', 'HomeController@index')->name('home');
@@ -124,13 +120,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/restore-product/{id}', 'AdminController@restoreProduct')->name('admin.restore');
 
     Route::get('/delete-post/{id}', 'AdminController@deleteBaiviet')->name('admin.deleteBaiviet');
-    Route::get('/deleted-post', 'AdminController@deletedBaiviet')->name('admin.deletedBaiviet');
+    Route::get('/deleted-post','AdminController@deletedPost')->name('admin.deletedPost');
     Route::get('/restore-post/{id}', 'AdminController@restoreBaiviet')->name('admin.restoreBaiviet');
 
 
     Route::get('/delete-CoffeeShop/{id}', 'AdminController@deleteQuanCfNgon')->name('admin.deleteQuanCfNgon');
     Route::get('/deleted-CoffeeShop', 'AdminController@deletedQuanCfNgon')->name('admin.deletedQuanCfNgon');
     Route::get('/restore-CoffeeShop/{id}', 'AdminController@restoreQuanCfNgon')->name('admin.restoreQuanCfNgon');
+
+    Route::get('/comment', 'commentController@index')->name('admin.quanLyComment');
+
+
 
   });
 
@@ -144,3 +144,22 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 //   checkout
 Route::get('/payment','CheckOutController@payment')->middleware('auth');
 Route::post('/payment-create','CustomerController@store')->name('store-CheckOut')->middleware('auth');
+
+
+//chat giữa người dùng và admin
+Route::prefix('chat')->name('client.chat.')->group(function () {
+    Route::get('', 'Client\ChatController@index')->name('index');
+    Route::post('/submit', 'Client\ChatController@submit')->name('submit');
+
+});
+
+
+
+Route::middleware('auth')->prefix('admin/chat')->name('admin.chat.')->group(function () {
+    Route::get('', 'Admin\ChatController@index')->name('index');
+    Route::post('/submit', 'Admin\ChatController@submit')->name('submit');
+});
+
+
+
+

@@ -71,8 +71,11 @@
 
 
                          <td class="text-light bg-dark">
-                            <a href="{{ route('admin.showDonHang',$cus->id)}}" class="btn btn-primary"><i class="fa fa-search"></i></a>
-                            <a href="{{ route('admin.deleteDonHang',$cus->id)}}" class="btn btn-primary" ><i class="fa fa-trash"></i></a>
+                            {{-- <a href="{{ route('admin.showDonHang',$cus->id)}}" class="btn btn-primary"><i class="fa fa-search"></i></a>
+                            <a href="{{ route('admin.deleteDonHang',$cus->id)}}" class="btn btn-primary" ><i class="fa fa-trash"></i></a> --}}
+                            {{-- <a href="{{ route('admin.restore',$del->id)}}" class="btn btn-primary" ><i>Khôi phục</i></a> --}}
+                            <a href="{{ route('admin.restoreDonHang',$cus->id)}}" class="btn btn-primary" ><i>Khôi phục</i></a>
+
 
 
                         </td>

@@ -1,7 +1,6 @@
 
-@extends('welcome')
+@extends('layouts.app')
 @section('content')
-
 
 <div class="slide-one-item home-slider owl-carousel">
 

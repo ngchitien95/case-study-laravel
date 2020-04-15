@@ -10,4 +10,7 @@ class BaiViet extends Model
     use SoftDeletes;
     protected $table = "baiviet";
 
+    public function commentBaiviet(){
+        return $this->hasMany('App\CommentBaiviet', 'id_baiviet','id');
+    }
 }

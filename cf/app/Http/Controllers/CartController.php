@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
 
+
 class CartController extends Controller
 {
     public function save_cart(Request $request){
@@ -57,7 +58,7 @@ class CartController extends Controller
     }
     //lấy thông tin từ users vào khách hàng
 
-    
+
 
 
 }

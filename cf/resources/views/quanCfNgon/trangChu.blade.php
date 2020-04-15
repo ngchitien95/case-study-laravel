@@ -1,11 +1,11 @@
-@extends('welcome')
+@extends('layouts.app')
 @section('content')
 <br>
-<div class="main">
+{{-- <div class="main"> --}}
     <div class="container">
 
         <!-- BEGIN SIDEBAR & CONTENT -->
-        <div class="row margin-bottom-40">
+        {{-- <div class="row margin-bottom-40"> --}}
             <!-- BEGIN CONTENT -->
             <div class="col-md-12 col-sm-12">
                 <div class="content-page">
@@ -18,14 +18,14 @@
                                             <img class="img-responsive" height="200" width="200" alt="" src="{{$quan->image}}">
                                         </div>
                                         <div class="col-md-8 col-sm-8">
-                                            <h2><a href="{{ route('quan-cf-ngon.show', $quan->id) }}">{{ $quan->title}}</a></h2>
+                                            <h2 ><a href="{{ route('quan-cf-ngon.show', $quan->id) }}">{{ $quan->title}}</a></h2>
                                             <ul class="blog-info">
                                                 {{-- <li><i class="fa fa-user"></i> Thảo</li>
                                                 <li><i class="fa fa-calendar"></i> 18/10/2019</li>
                                                 <li><i class="fa fa-eye"></i> 0</li> --}}
                                             </ul>
                                             <p>{{ $quan->describe}}</p>
-                                            <a href= "{{ route('quan-cf-ngon.show', $quan->id) }}" class="more">Đọc tiếp <i class="icon-angle-right"></i></a>
+                                            <a class="btn btn-success" href= "{{ route('quan-cf-ngon.show', $quan->id) }}"  >Đọc tiếp </a>
                                         </div>
                                     </div>
                                     <hr class="blog-post-sep">
@@ -63,9 +63,9 @@
 
             </div>
             <!-- END CONTENT -->
-        </div>
+        {{-- </div> --}}
         <!-- END SIDEBAR & CONTENT -->
     </div>
-</div>
+{{-- </div> --}}
 
 @endsection

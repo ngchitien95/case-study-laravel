@@ -21,9 +21,10 @@ class baiVietController extends Controller
      */
     public function index()
     {
-        $baiviet = BaiViet::paginate(3);
+        // $baiviet = BaiViet::paginate(3);
 
-        return View('baiViet.trangChuBaiViet',compact('baiviet'));
+        // return View('baiViet.trangChuBaiViet',compact('baiviet'));
+        return View('baiViet.trangChuBaiViet', ['baiviet' => BaiViet::latest()->paginate(2)]);
 
 
     }

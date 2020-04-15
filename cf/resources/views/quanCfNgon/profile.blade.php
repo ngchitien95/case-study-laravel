@@ -1,5 +1,6 @@
-@extends('welcome')
+@extends('layouts.app')
 @section('content')
+<br>
 
 <div class="main">
     <div class="container">
@@ -10,22 +11,34 @@
                 <div class="content-page">
                     <div class="row">
                         <!-- BEGIN LEFT SIDEBAR -->
-                        <div class="col-md-8 col-sm-8 blog-item">
-                        <h2><a href="#">{{$cfs->title}}</a></h2>
+                        <div class="col-md-9 col-sm-9 blog-item">
+                            <h2 class="text-primary">{{$cfs->title}}</h2>
                             <ul class="blog-info">
                                 {{-- <li><i class="fa fa-user"></i> Thảo</li> --}}
-                            <li><i class="fa fa-calendar"></i> {{$cfs->created_at}}</li>
+                                <li><i class="fa fa-calendar"></i> {{$cfs->created_at}}</li>
                                 {{-- <li><i class="fa fa-eye"></i> 0</li> --}}
                             </ul>
 
-                            <img src="{{$cfs->image}}" alt="">
+                            {{-- <img src="{{$cfs->image}}" alt=""> --}}
 
 
-                        <p><span style="color: rgb(28, 30, 33); font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold;">{{$cfs->content}}</a></span><br></p>
+                            <p><span
+                                    style="color: rgb(28, 30, 33); font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold;">
+                                    {!! $cfs->content !!}</a></span><br></p>
+                            {{-- <div class="fb-like" data-href="http://blogger-demo.herokuapp.com/blog/{{ $post->slug }}" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div></br> --}}
+
+
+                            <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="button" data-action="like" data-size="small" data-share="true"></div>
+                            <br>
+                            <br>
+                            <div id="fb-root"></div>
+                            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0"></script>
+
+
                         </div>
                         <!-- END LEFT SIDEBAR -->
                         <!-- BEGIN RIGHT SIDEBAR -->
-                        <div class="col-md-4 col-sm-4 blog-sidebar">
+                        <div class="col-md-3 col-sm-3 blog-sidebar">
                             <!-- CATEGORIES START -->
 
                             <!-- CATEGORIES END -->
@@ -43,20 +56,21 @@
                                         </div>
                             </div> --}}
                             <!-- END RECENT NEWS -->
-                            <hr />
+                            {{-- <hr /> --}}
                             <!-- BEGIN MOST READ -->
-                        <h2>Loại sản phẩm</h2>
-                            <div class="recent-news margin-bottom-10">
+
+
+
+                            <h1 class=''>Loại sản phẩm</h1>
+
+                            <div class="recent-news margin-bottom-10 ">
                                 @foreach ($productType as $product)
-                                        <div class="row margin-bottom-10">
-                                            <div class="col-md-3">
-                                            {{-- <img class="img-responsive" alt="" src="{{$product->image}}"> --}}
-                                            </div>
-                                            <div class="col-md-9 recent-news-inner">
-                                                <h3><a href="{{route('cf.cfType',$product->id)}}">{{$product->name}}</a></h3>
-                                                <p>{{$product->description}}</p>
-                                            </div>
-                                        </div>
+                                <div class="row margin-bottom-10">
+
+                                    <h3><a href="{{route('cf.cfType',$product->id)}}">{{$product->name}}</a></h3>
+                                    <p>{{$product->description}}</p>
+
+                                </div>
                                 @endforeach
 
 
@@ -74,6 +88,6 @@
 </div>
 
 
-        <!-- BEGIN STEPS -->
+<!-- BEGIN STEPS -->
 
 @endsection

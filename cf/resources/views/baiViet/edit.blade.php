@@ -16,8 +16,9 @@
              <label>Miêu tả</label>
              <input type="text" class="form-control" name="describe" value="{{ $baiViet->describe }}" required></div>
           <div class="form-group">
-             <label>Nội dung</label>
-             <input type="text" class="form-control" name="content" value="{{ $baiViet->content }}" required>
+            <label for="exampleInputEmail1">Nội Dung</label>
+             <textarea name="content" id="editor" class="form-control"> {{ $baiViet->content }} </textarea>
+             {{-- <input type="text" class="form-control" name="content" value="{{ $baiViet->content }}" required> --}}
           </div>
 
           <div class="form-group">
@@ -32,5 +33,12 @@
        </div>
       </div>
  </div>
+
+ <script src="//cdn.ckeditor.com/4.13.1/full/ckeditor.js"></script>
+ <script>
+     CKEDITOR.replace( 'editor' );
+     CKEDITOR.config.entities = false;
+     CKEDITOR.config.height = 500;
+ </script>
 
  @endsection

@@ -1,110 +1,124 @@
-<div id="overlayer"></div>
-<div class="loader">
-  <div class="spinner-border text-primary" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>
-</div>
-
-<div class="site-wrap">
-
-
-
-  <div class="site-mobile-menu">
-    <div class="site-mobile-menu-header">
-      <div class="site-mobile-menu-close mt-3">
-        <span class="icon-close2 js-menu-toggle"></span>
-      </div>
-    </div>
-    <div class="site-mobile-menu-body"></div>
-  </div>
-  <!-- .site-mobile-menu -->
-
-
-  <div class="site-navbar-wrap js-site-navbar bg-white">
-
+<nav class="navbar mainmenu-area" data-spy="affix" data-offset-top="197">
     <div class="container">
-      <div class="site-navbar bg-light">
-        <div class="row align-items-center">
-          <div class="col-2">
-            <h2 class="mb-0 site-logo"><a href="{{ route('trang-chu') }}" class="font-weight-bold text-uppercase">COFFEE</a></h2>
-          </div>
-          <div class="col-10">
-            <nav class="site-navigation text-right" role="navigation">
-              <div class="container">
-                <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
-
-                <ul class="site-menu js-clone-nav d-none d-lg-block">
-
-                <li class="active"><a href="{{ route('cf') }}">CÀ PHÊ</a></li>
-                  <li class="has-children">
-                    {{-- <a href="about.html">Loại sản phẩm</a> --}}
-                    <ul class="dropdown arrow-top">
-                      <li><a href="testimonials.html">Cà phê</a></li>
-                      <li><a href="gallery.html">Máy pha cà phê</a></li>
-                      {{-- <li><a href="faq.html">FAQ</a></li>
-                      <li><a href="why-choose-us.html">Why Choose Us</a></li> --}}
-                      {{-- <li class="has-children">
-                        <a href="#">Sub Menus</a>
-                        <ul class="dropdown">
-                          <li><a href="testimonials.html">Testimonials</a></li>
-                          <li><a href="gallery.html">Gallery</a></li>
-                          <li><a href="why-choose-us.html">Why Choose Us</a></li>
-                        </ul>
-                      </li> --}}
-                    </ul>
-                  </li>
-                  <li><a href="{{ route('quan-cf-ngon') }}">QUÁN CÀ PHÊ NGON</a></li>
-                  <li><a href="{{ route('bai-viet') }}">BÀI VIẾT</a></li>
-                  <li><a href="{{ route('lien-he') }}">LIÊN HỆ</a></li>
-                  <li><a href="{{ route('show-cart.cart') }}">GIỎ HÀNG</a></li>
-                  <div class="beta-comp">
-                    <form role="search" method="get" id="searchform" action="{{route('keyword.search')}}">
-                        <input type="text" value="" name="key" id="s" placeholder="Nhập từ khóa..." />
-                        <button class="fa fa-search" type="submit" id="searchsubmit"></button>
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="search-box" class="collapse">
+                    <form action="{{route('keyword.search')}}" method="get">
+                        <input type="search" class="form-control" placeholder="Nhập từ khóa...">
                     </form>
+                    {{-- <form role="search" method="get" id="searchform" action="{{route('keyword.search')}}">
+                    <input type="text" value="" name="key" id="s" placeholder="Nhập từ khóa..." />
+                    <button class="fa fa-search" type="submit" id="searchsubmit"></button>
+                    </form> --}}
                 </div>
-                  @guest
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('login') }}">{{ __('Đăng Nhập')  }} </a>
-    </li>
-    @if (Route::has('register'))
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('register') }}">{{ __('Đăng kí') }}</a>
-        </li>
-    @endif
-@else
-    <li class="nav-item dropdown">
-        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-            {{ Auth::user()->name }} <span class="caret"></span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/home">Quản Lý</a>
-            <a class="dropdown-item" href="{{ route('logout') }}"
-               onclick="event.preventDefault();
-                   document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                  style="display: none;">
-                @csrf
-            </form>
+            </div>
         </div>
-    </li>
-@endguest
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="navbar-header smoth">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainmenu">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    {{-- <li><a href="#portfolio-area">Trang chủ</a></li> --}}
+                    <a class="navbar-brand" href="#home-area"><img src="{{ asset('neos/classic/images/logo.png') }}"
+                            width="100px" height="100px" alt=""></a>
+                </div>
+                <div class="collapse navbar-collapse navbar-right" id="mainmenu">
+                    <ul class="nav navbar-nav navbar-right help-menu">
+                        {{-- <li><a href=""><i class="icofont icofont-user-alt-4"></i></a></li> --}}
 
 
 
-                  {{-- <a href="javascript:void(0);" class="top-cart-info-count">0</a>
-                  <a href="javascript:void(0);" class="top-cart-info-value">0 ₫</a> --}}
-                  {{-- <li><a href="contact.html"><span class="d-inline-block bg-primary text-white btn btn-primary">Get Started</span></a></li> --}}
+                        <li><a href="#search-box" data-toggle="collapse"><i
+                                    class="icofont icofont-search-alt-2"></i></a></li>
+                        <li class="select-cuntry">
+                            <select name="counter" id="counter">
+                                <option value="ENG">ENG</option>
+                                <option value="BEN">BEN</option>
+                                <option value="ARA">ARA</option>
+                                <option value="ARG">ARG</option>
+                                <option value="CHV">CHV</option>
+                            </select>
+                        </li>
+                        <li class="select-cuntry">
 
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav primary-menu">
+                        <li class="active"><a href="{{ route('cf') }}">Sản Phẩm</a></li>
+                        <li><a href="{{ route('quan-cf-ngon') }}">Quán Cf Ngon</a></li>
+                        <li><a href="{{ route('bai-viet') }}">Bài Viết</a></li>
+                        <li><a href="{{ route('lien-he') }}">LIên Hệ</a></li>
+                        <li><a href="{{ route('show-cart.cart') }}">Giỏ Hàng</a></li>
+                        <li><a href="/chat">chat</a></li>
 
-                </ul>
-              </div>
-            </nav>
-          </div>
+                        {{-- @if (Auth::user())
+                            <li>Hello {{ Auth::user()->name }}</li>
+                        <li><a href="/chat">Logout</a></li>
+                        @else
+                        <li><a href="/chat">Đăng ký</a></li>
+                        @endif --}}
+                        @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Đăng Nhập')  }} </a>
+                        </li>
+                        @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Đăng kí') }}</a>
+                        </li>
+                        @endif
+                        @else
+                        <ul class="nav navbar-nav navbar-right">
+                            @if (Auth::check())
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> --}}
+                                    <li><a class="dropdown-item" style="color : black;" href="/home">Quản Lý</a></li>
+                                    <li><a class="dropdown-item" style="color : black;" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a></li>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        style="display: none;">
+                                        @csrf
+                                    </form>
+                                    {{-- </div> --}}
+                                </ul>
+                            </li>
+                        </ul>
+                        @endif
+                        @endguest
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</nav>
+<header class="header-area overlay" id="home-area">
+    <div class="vcenter">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-10 col-md-8">
+                    <div class="header-text">
+                        <h2 class="header-title wow fadeInUp">Uy Tín Tạo Nên Thương Hiệu<span class="dot"></span></h2>
+                        <div class="wow fadeInUp" data-wow-delay="0.5s"><q>Để có những gói cà phê NGON, chúng tôi chăm
+                                chút từng mẻ rang.
+
+                                Từ vệ sinh an toàn thực phẩm cho đến chất lượng của máy rang và bao túi đựng cà phê.</q>
+                        </div>
+                        <div class="wow fadeInUp" data-wow-delay="0.7s">
+                            <a href="#" class="bttn bttn-lg bttn-primary">Contact Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Mainmenu-Area-/ -->

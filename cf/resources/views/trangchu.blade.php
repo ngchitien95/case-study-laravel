@@ -1,130 +1,152 @@
-
-@extends('welcome')
+@extends('layouts.app')
 @section('content')
+<br>
+<br>
+<br>
+<br>
+<!--Preloader-->
+<div class="preloader">
+    <div class="spinner"></div>
+</div>
 
-<div class="slide-one-item home-slider owl-carousel">
+<!-- Mainmenu-Area -->
+<!--Header-Area-->
 
-    <div class="site-blocks-cover inner-page overlay"  style="background-image: url({{asset('neos/images/anhbia.jpg')}});width:auto;height:300px" data-aos="fade" data-stellar-background-ratio="0.5">
-      <div class="container">
-        <div class="row align-items-center justify-content-center">
-          <div class="col-md-6 text-center" data-aos="fade">
-            <h1 class="font-secondary  font-weight-bold text-uppercase">Để có những gói cà phê NGON, chúng tôi chăm chút từng mẻ rang. </h1>
-          </div>
-        </div>
-      </div>
-    </div>
+<!--Header-Area-/-->
 
-    <div class="site-blocks-cover inner-page overlay" style="background-image: url({{asset('neos/images/anhbia1.jpg')}});
-    width:auto;height:300px" data-aos="fade" data-stellar-background-ratio="0.5">
-      <div class="container">
-        <div class="row align-items-center justify-content-center">
-          <div class="col-md-7 text-center" data-aos="fade">
-            <h1 class="font-secondary font-weight-bold text-uppercase">CHUYÊN NGHIỆP SẠCH SẼ GỌN GÀNG
-THIẾT BỊ HIỆN ĐẠI ĐÚNG CHUẨN</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  {{-- <div class="slant-1"></div> --}}
-
+<!-- About-Area -->
+<section class="" id="about-area">
     <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center pt-5 " data-aos="fade">
-          <span class="caption d-block mb-2 font-secondary font-weight-bold ">NƠI KHỞI ĐẦU CHO NHỮNG THÀNH CÔNG</span>
-          <h2 class="site-section-heading text-uppercase text-center font-secondary">UY TÍN TẠO NÊN THƯƠNG HIỆU</h2>
-        </div>
-      </div>
-    </div>
+        <div style="display: flex; flex-direction: row">
+            @foreach ($new_productType1 as $type)
 
-
-  @foreach ($new_productType1 as $type)
-
-<div class="site-half pt-5" >
-    <div class="img-bg-1" style="background-image:  url('{{asset('neos/images/truyenthong.jpg')}}');" >
-    </div>
-         <div class="container">
-             <div class="row no-gutters align-items-stretch">
-               <div class="col-lg-5 ml-lg-auto py-5">
-                     <span class="caption d-block mb-2 font-secondary font-weight-bold">{{ $type->name}}</span>
-                     <p>{{$type->description}}</p>
-                    <h2 class="site-section-heading text-uppercase font-secondary mb-5"> <a href="{{route('cf.cfType',$type->id)}}">Xem toàn bộ sản phẩm </a>  </h2>
+            <div style="flex-grow: 1; margin-right: 3rem; text-align: justify">
+                <div class="page-title">
+                    <h2 class="title wow fadeInUp">{{$type->name}}</h2>
+                    <div class="wow fadeInUp" data-wow-delay="0.5s">
+                        <p>{{$type->description}}</p>
+                    </div>
+                </div>
+                <div class="wow fadeInUp" data-wow-delay="0.7s">
+                    <a href="{{route('cf.cfType',$type->id)}}" class="bttn bttn-primary">Xem toàn bộ sản phẩm</a>
                 </div>
             </div>
-        </div>
-</div>
-@endforeach
-<div class="site-section">
-    <div class="container">
-      <div class="row">
-        @foreach ($new_product as $product)
-        <div class="col-md-6 col-lg-3 mb-5"  data-aos-delay="100">
-          <div class="media-image">
-            <a href="single.html"><img src="{{$product->image}}" alt="Image" class="img-fluid"></a>
-            <div class="media-image-body">
-              <h2 class="font-secondary text-uppercase"><a href="{{route('cf.show', $product->id) }}">{{ $product->name}}</a></h2>
-            <span class="d-block mb-3" style="color:red" >Giá  {{ $product->promotion_price}} &mdash;
-                <form action="{{route ('save_cart')}}" method="post">
-                    @csrf
-                    <button class="btn btn-info" >Mua</button>
-                <input type="hidden" name="productid_hidden" value="{{$product->id}}">
-                <input type="hidden" name="qty" value="1">
-                </form>
-            </span>
-              <p>{{ $product->description}}</p>
-              <p><a href="{{route('cf.show', $product->id) }}">Tìm hiểu thêm</a></p>
+            <div style="width: 300px; height: auto; flex-shrink: 0; flex-grow: 0">
+                <img src="classic/images/about-image.png" alt="">
             </div>
-          </div>
+            @endforeach
         </div>
-        @endforeach
-        </div>
-      </div>
-    </div>
 
+        <div class="row prices tab-content">
+            @foreach ($new_product as $product)
 
-@foreach ($new_productType2 as $type)
-<div class="site-half block">
-  <div class="img-bg-1 right" style="background-image: url('{{asset('neos/images/img_5.jpg')}}');" data-aos="fade"></div>
-  <img class="img-bg-1 right" height="200" width="200" alt="" src="{{$type->image}}">
-  <div class="container">
-    <div class="row no-gutters align-items-stretch">
-      <div class="col-lg-5 mr-lg-auto py-5">
-        <span class="caption d-block mb-2 font-secondary font-weight-bold">{{ $type->name}}</span>
-        <p>{{$type->description}}</p>
-        <h2 class="site-section-heading text-uppercase font-secondary mb-5"><a href="{{route('cf.cfType',$type->id)}}">Xem toàn bộ sản phẩm </a></h2>
-      </div>
-    </div>
-  </div>
-</div>
-@endforeach
-<div class="site-section">
-    <div class="container">
-      <div class="row">
-        @foreach ($new_product2 as $product)
-        <div class="col-md-6 col-lg-3 mb-5" data-aos-delay="100">
-          <div class="media-image">
-            <a href="single.html"><img src="{{$product->image}}" alt="Image" class="img-fluid"></a>
-            <div class="media-image-body">
-              <h2 class="font-secondary text-uppercase"><a href="{{route('cf.show', $product->id) }}">{{ $product->name}}</a></h2>
-              <span class="d-block mb-3" style="color:red" >
-                Giá  {{ $product->promotion_price}} &mdash;
-                <form action="{{route ('save_cart')}}" method="post">
-                    @csrf
-                    <button class="btn btn-info" >Mua</button>
-                <input type="hidden" name="productid_hidden" value="{{$product->id}}">
-                <input type="hidden" name="qty" value="1">
-                </form>
-            </span>
-              <p>{{ $product->description}}</p>
-              <p><a href="{{route('cf.show', $product->id) }}">Tìm hiểu thêm</a></p>
+            <div id="monthly" class="tab-pane fade in active">
+                <div class="col-xs-6 col-md-3 wow fadeInLeft" data-wow-delay="0.2s">
+                    <div class="price-box">
+                        <a style="height: 6rem; box-sizing: border-box; display:block;"
+                            href="{{route('cf.show', $product->id) }}">{{ $product->name}}</a>
+                        <a href="single.html"><img src="{{$product->image}}" alt="Image" class="img-fluid"></a>
+                        <div style="text-align:center;">
+                            <form action="{{route ('save_cart')}}" method="post">
+                                @csrf
+                                <br>
+                                <button class="btn btn-info">Add to Cart</button>
+                                <input type="hidden" name="productid_hidden" value="{{$product->id}}">
+                                <input type="hidden" name="qty" value="1">
+                            </form>
+                            {{-- <h3 class="amount">{{ $product->promotion_price}}/<span>Pack</span></h3> --}}
+                            <strong>{{ $product->promotion_price}} VND / Pack</strong>
+                            {{-- <ul class="price-list"> --}}
+                            {{-- <li>{{ $product->description}}</li> --}}
+                            <p class="description" style="display: -webkit-box;
+                        -webkit-line-clamp: 3;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;">{{ $product->description}}</p>
+                            {{-- </ul> --}}
+                            <a href="{{route('cf.show', $product->id) }}" class="bttn bttn-sm bttn-default">Tìm hiểu
+                                thêm</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
-          </div>
+            @endforeach
+
         </div>
-        @endforeach
-        </div>
-      </div>
     </div>
+</section>
+<!-- About-Area / -->
+
+<!-- About-Area -->
+<section class="" id="about-area">
+    <div class="container">
+        <div style="display: flex; flex-direction: row">
+            @foreach ($new_productType2 as $type)
+
+            <div style="flex-grow: 1; margin-right: 3rem; text-align: justify">
+                <div class="page-title">
+                    <h2 class="title wow fadeInUp">{{$type->name}}</h2>
+                    <div class="wow fadeInUp" data-wow-delay="0.5s">
+                        <p>{{$type->description}}</p>
+                    </div>
+                </div>
+                <div class="wow fadeInUp" data-wow-delay="0.7s">
+                    <a href="{{route('cf.cfType',$type->id)}}" class="bttn bttn-primary">Xem toàn bộ sản phẩm</a>
+                </div>
+            </div>
+            <div style="width: 300px; height: auto; flex-shrink: 0; flex-grow: 0">
+                <img src="classic/images/phingiay.png" alt="">
+            </div>
+            @endforeach
+        </div>
+
+        <div class="row prices tab-content">
+            @foreach ($new_product2 as $product)
+
+            <div id="monthly" class="tab-pane fade in active">
+                <div class="col-xs-6 col-md-3 wow fadeInLeft" data-wow-delay="0.2s">
+                    <div class="price-box">
+                        <a style="height: 6rem; box-sizing: border-box; display:block;"
+                            href="{{route('cf.show', $product->id) }}">{{ $product->name}}</a>
+                        <a href="single.html"><img src="{{$product->image}}" alt="Image" class="img-fluid"></a>
+                        <div style="text-align:center;">
+                            <form action="{{route ('save_cart')}}" method="post">
+                                @csrf
+                                <br>
+                                <button class="btn btn-info">Add to Cart</button>
+                                <input type="hidden" name="productid_hidden" value="{{$product->id}}">
+                                <input type="hidden" name="qty" value="1">
+                            </form>
+                            {{-- <h3 class="amount">{{ $product->promotion_price}}/<span>Pack</span></h3> --}}
+                            <strong>{{ $product->promotion_price}} VND / Pack</strong>
+                            {{-- <ul class="price-list"> --}}
+                            {{-- <li>{{ $product->description}}</li> --}}
+                            <p class="description" style="display: -webkit-box;
+                            -webkit-line-clamp: 3;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;">{{ $product->description}}</p>
+                            {{-- </ul> --}}
+                            <a href="{{route('cf.show', $product->id) }}" class="bttn bttn-sm bttn-default">Tìm hiểu
+                                thêm</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            @endforeach
+
+        </div>
+    </div>
+</section>
+<!-- About-Area / -->
 
 
-  @endsection
+</html>
+
+
+@endsection
